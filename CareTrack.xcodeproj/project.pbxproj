@@ -17,6 +17,9 @@
 		AB813A1529EB114400997731 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = AB813A1429EB114400997731 /* FirebaseFirestoreCombine-Community */; };
 		AB813A1729EB114400997731 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AB813A1629EB114400997731 /* FirebaseFirestoreSwift */; };
 		AB813A1929EB114400997731 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AB813A1829EB114400997731 /* FirebaseStorage */; };
+		AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB813A1C29EB1A0F00997731 /* OnBoardingView.swift */; };
+		AB813A1F29EB1DD100997731 /* Archivo-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB813A1E29EB1DD100997731 /* Archivo-VariableFont_wdth,wght.ttf */; };
+		AB813A2529EB26C500997731 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = AB813A2429EB26C500997731 /* SF-Pro-Display-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,10 @@
 		AB813A0329EB0E2500997731 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB813A0629EB0E2500997731 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB813A0D29EB0E9B00997731 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AB813A1C29EB1A0F00997731 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		AB813A1E29EB1DD100997731 /* Archivo-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Archivo-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
+		AB813A2029EB1E5200997731 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AB813A2429EB26C500997731 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +71,10 @@
 		AB8139FE29EB0E2400997731 /* CareTrack */ = {
 			isa = PBXGroup;
 			children = (
+				AB813A2029EB1E5200997731 /* Info.plist */,
+				AB813A2329EB21C800997731 /* Fonts */,
+				AB813A1B29EB171300997731 /* Models */,
+				AB813A1A29EB16F500997731 /* Views */,
 				AB8139FF29EB0E2400997731 /* CareTrackApp.swift */,
 				AB813A0129EB0E2400997731 /* ContentView.swift */,
 				AB813A0329EB0E2500997731 /* Assets.xcassets */,
@@ -78,6 +89,30 @@
 				AB813A0629EB0E2500997731 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AB813A1A29EB16F500997731 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB813A1C29EB1A0F00997731 /* OnBoardingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AB813A1B29EB171300997731 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AB813A2329EB21C800997731 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AB813A1E29EB1DD100997731 /* Archivo-VariableFont_wdth,wght.ttf */,
+				AB813A2429EB26C500997731 /* SF-Pro-Display-Light.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,8 +183,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB813A1F29EB1DD100997731 /* Archivo-VariableFont_wdth,wght.ttf in Resources */,
 				AB813A0729EB0E2500997731 /* Preview Assets.xcassets in Resources */,
 				AB813A0429EB0E2500997731 /* Assets.xcassets in Resources */,
+				AB813A2529EB26C500997731 /* SF-Pro-Display-Light.otf in Resources */,
 				AB813A0E29EB0E9B00997731 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */,
 				AB813A0229EB0E2400997731 /* ContentView.swift in Sources */,
 				AB813A0029EB0E2400997731 /* CareTrackApp.swift in Sources */,
 			);
@@ -294,6 +332,7 @@
 				DEVELOPMENT_TEAM = PQ66K967C7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CareTrack/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -323,6 +362,7 @@
 				DEVELOPMENT_TEAM = PQ66K967C7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CareTrack/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
