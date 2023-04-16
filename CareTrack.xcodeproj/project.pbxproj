@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		33BC9A3629EBEB3500BF688C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC9A3529EBEB3500BF688C /* SignUpView.swift */; };
 		33BC9A3929EBFE5400BF688C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC9A3829EBFE5400BF688C /* SignUpViewModel.swift */; };
+		AB61895729EC55E6005BE5C6 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */; };
+		AB61895929EC5606005BE5C6 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB61895829EC5606005BE5C6 /* LogInView.swift */; };
 		AB813A0029EB0E2400997731 /* CareTrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8139FF29EB0E2400997731 /* CareTrackApp.swift */; };
 		AB813A0229EB0E2400997731 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB813A0129EB0E2400997731 /* ContentView.swift */; };
 		AB813A0429EB0E2500997731 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB813A0329EB0E2500997731 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		33BC9A3529EBEB3500BF688C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		33BC9A3829EBFE5400BF688C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		AB61895829EC5606005BE5C6 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		AB8139FC29EB0E2400997731 /* CareTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8139FF29EB0E2400997731 /* CareTrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareTrackApp.swift; sourceTree = "<group>"; };
 		AB813A0129EB0E2400997731 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				33BC9A3829EBFE5400BF688C /* SignUpViewModel.swift */,
+				AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 			children = (
 				AB813A1C29EB1A0F00997731 /* OnBoardingView.swift */,
 				33BC9A3529EBEB3500BF688C /* SignUpView.swift */,
+				AB61895829EC5606005BE5C6 /* LogInView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,10 +211,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				33BC9A3629EBEB3500BF688C /* SignUpView.swift in Sources */,
+				AB61895929EC5606005BE5C6 /* LogInView.swift in Sources */,
 				AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */,
 				33BC9A3929EBFE5400BF688C /* SignUpViewModel.swift in Sources */,
 				AB813A0229EB0E2400997731 /* ContentView.swift in Sources */,
-				AB10A96729EBE95000946BFC /* LogInView.swift in Sources */,
+				AB61895729EC55E6005BE5C6 /* LogInViewModel.swift in Sources */,
 				AB813A0029EB0E2400997731 /* CareTrackApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

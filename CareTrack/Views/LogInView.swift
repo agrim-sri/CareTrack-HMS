@@ -7,19 +7,6 @@
 
 import SwiftUI
 
-struct PartialCircle: Shape {
-    func path(in rect: CGRect) -> Path {
-        Path { path in
-            let center = CGPoint(x: 30, y: -120)
-            let radius = min(rect.width, rect.height)
-            let startAngle = Angle(degrees: 270)
-            let endAngle = Angle(degrees: 180)
-            
-            path.addArc(center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: false)
-        }
-    }
-}
-
 struct LogInView: View {
     
     @State var email: String = ""
@@ -110,3 +97,4 @@ struct LogInView_Previews: PreviewProvider {
         LogInView()
     }
 }
+
