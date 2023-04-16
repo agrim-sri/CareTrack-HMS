@@ -208,6 +208,7 @@
 				AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */,
 				33BC9A3929EBFE5400BF688C /* SignUpViewModel.swift in Sources */,
 				AB813A0229EB0E2400997731 /* ContentView.swift in Sources */,
+				AB10A96729EBE95000946BFC /* LogInView.swift in Sources */,
 				AB813A0029EB0E2400997731 /* CareTrackApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

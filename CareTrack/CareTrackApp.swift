@@ -15,7 +15,7 @@ struct CareTrackApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            OnBoardingView()
+            ContentView()
         }
     }
 }
