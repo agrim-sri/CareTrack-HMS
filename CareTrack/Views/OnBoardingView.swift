@@ -92,9 +92,7 @@ struct OnBoardingView: View {
                     }
             }.padding()
             
-            Button {
-                
-            } label: {
+            NavigationLink(destination: SignUpView()) {
                 Text("Sign Up")
                     .padding()
                     .background(
@@ -104,6 +102,7 @@ struct OnBoardingView: View {
                     
                     )
             }
+           
             .padding(.bottom)
             
             
