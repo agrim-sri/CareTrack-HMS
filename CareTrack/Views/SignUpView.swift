@@ -124,8 +124,10 @@ struct SignUpView: View {
                                     }
                             }
                         Button{
+                            if email != "" && password != ""{
+                                signup.registerUser(email: email, password: password)
+                            }
                             
-                            signup.registerUser(email: email, password: password)
                         }label: {
                             Text("Sign Up")
                                 .font(Font.custom("SF Pro Display", size: 17))
