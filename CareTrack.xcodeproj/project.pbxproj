@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3343E9B329ECFD3800AC73D1 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3343E9B229ECFD3800AC73D1 /* Supabase */; };
+		3343E9B529ED621200AC73D1 /* PatientDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */; };
 		33BC9A3629EBEB3500BF688C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC9A3529EBEB3500BF688C /* SignUpView.swift */; };
 		33BC9A3929EBFE5400BF688C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC9A3829EBFE5400BF688C /* SignUpViewModel.swift */; };
 		AB61895729EC55E6005BE5C6 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */; };
@@ -27,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDashboardView.swift; sourceTree = "<group>"; };
 		33BC9A3529EBEB3500BF688C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		33BC9A3829EBFE5400BF688C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 			files = (
 				AB813A1529EB114400997731 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				AB813A1129EB114400997731 /* FirebaseAuth in Frameworks */,
+				3343E9B329ECFD3800AC73D1 /* Supabase in Frameworks */,
 				AB813A1329EB114400997731 /* FirebaseFirestore in Frameworks */,
 				AB813A1929EB114400997731 /* FirebaseStorage in Frameworks */,
 				AB813A1729EB114400997731 /* FirebaseFirestoreSwift in Frameworks */,
@@ -114,6 +118,7 @@
 				AB813A1C29EB1A0F00997731 /* OnBoardingView.swift */,
 				33BC9A3529EBEB3500BF688C /* SignUpView.swift */,
 				AB61895829EC5606005BE5C6 /* LogInView.swift */,
+				3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				AB813A1429EB114400997731 /* FirebaseFirestoreCombine-Community */,
 				AB813A1629EB114400997731 /* FirebaseFirestoreSwift */,
 				AB813A1829EB114400997731 /* FirebaseStorage */,
+				3343E9B229ECFD3800AC73D1 /* Supabase */,
 			);
 			productName = CareTrack;
 			productReference = AB8139FC29EB0E2400997731 /* CareTrack.app */;
@@ -180,6 +186,7 @@
 			mainGroup = AB8139F329EB0E2400997731;
 			packageReferences = (
 				AB813A0F29EB114400997731 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3343E9B129ECFD3800AC73D1 /* XCRemoteSwiftPackageReference "supabase-swift" */,
 			);
 			productRefGroup = AB8139FD29EB0E2400997731 /* Products */;
 			projectDirPath = "";
@@ -215,6 +222,7 @@
 				AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */,
 				33BC9A3929EBFE5400BF688C /* SignUpViewModel.swift in Sources */,
 				AB813A0229EB0E2400997731 /* ContentView.swift in Sources */,
+				3343E9B529ED621200AC73D1 /* PatientDashboardView.swift in Sources */,
 				AB61895729EC55E6005BE5C6 /* LogInViewModel.swift in Sources */,
 				AB813A0029EB0E2400997731 /* CareTrackApp.swift in Sources */,
 			);
@@ -423,6 +431,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3343E9B129ECFD3800AC73D1 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase-community/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
 		AB813A0F29EB114400997731 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -434,6 +450,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3343E9B229ECFD3800AC73D1 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3343E9B129ECFD3800AC73D1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
 		AB813A1029EB114400997731 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AB813A0F29EB114400997731 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

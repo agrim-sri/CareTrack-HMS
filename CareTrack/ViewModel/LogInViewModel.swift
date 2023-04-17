@@ -9,8 +9,7 @@ import Foundation
 import Firebase
 
 final class LogInViewModel : ObservableObject {
-    
-    func verifyUser(email: String, password: String){
+    func verifyUser(email: String, password: String)-> Bool{
         Auth.auth().signIn(withEmail: email, password: password){ result, error in
             
             if(error != nil){
@@ -20,6 +19,7 @@ final class LogInViewModel : ObservableObject {
             
             print("Welcome!")
         }
+        return true
     }
 }
 

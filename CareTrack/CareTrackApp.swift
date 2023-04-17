@@ -13,9 +13,18 @@ struct CareTrackApp: App {
     init (){
         FirebaseApp.configure()
     }
+    @AppStorage("signIn") var isSignIn: Bool = false
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                if !isSignIn{
+                    OnBoardingView()
+                }
+                else{
+                    ContentView()
+                }
+            }.navigationViewStyle(.stack)
         }
     }
 }
