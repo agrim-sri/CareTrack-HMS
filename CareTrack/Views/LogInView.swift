@@ -12,7 +12,8 @@ struct LogInView: View {
     @State var email: String = ""
     @State var password: String = ""
     @StateObject var login = LogInViewModel()
-    
+    @AppStorage("signIn") var isSignIn: Bool = false
+
     
     var body: some View {
         VStack {
@@ -52,7 +53,7 @@ struct LogInView: View {
                                     }
                             }
                         
-                        TextField("Enter your Password", text : $password)
+                        SecureField("Enter your Password", text : $password)
                             .frame(width: 280, height: 40)
                             .font(Font.custom("SF Pro Display", size: 17))
                             .padding(.leading, 30)
@@ -70,7 +71,11 @@ struct LogInView: View {
                             }
                         
                         Button {
-                            login.verifyUser(email: email, password: password)
+                            let x = login.verifyUser(email: email, password: password)
+                            if x == true{
+                                isSignIn.toggle()
+                            }
+                            
                         } label: {
                             RoundedRectangle(cornerRadius: 15)
                                 .frame(width: 150, height: 40)

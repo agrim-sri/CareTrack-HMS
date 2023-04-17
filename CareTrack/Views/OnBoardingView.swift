@@ -63,34 +63,33 @@ struct OnBoardingView: View {
             }
             
             
-            TextField("􀌾 Enter Mobile Number", text : $mobileno)
-                .frame(width: 220, height: 48)
-                .font(Font.custom("SF Pro Display", size: 17))
-                .padding(.leading, 30)
-                .background{
-                    RoundedRectangle(cornerRadius: 15)
-                        .stroke(lineWidth: 2.0)
-                        
-                        .foregroundColor(Color(red: 0.636, green: 0.716, blue: 0.998))
-                        .frame(width: 220, height: 50)
-                        .background{
-                            RoundedRectangle(cornerRadius: 15)
-                                .fill(Color(red: 0.926, green: 0.946, blue: 1.001))
-                        }
-                }
+//            TextField("􀌾 Enter Mobile Number", text : $mobileno)
+//                .frame(width: 220, height: 48)
+//                .font(Font.custom("SF Pro Display", size: 17))
+//                .padding(.leading, 30)
+//                .background{
+//                    RoundedRectangle(cornerRadius: 15)
+//                        .stroke(lineWidth: 2.0)
+//
+//                        .foregroundColor(Color(red: 0.636, green: 0.716, blue: 0.998))
+//                        .frame(width: 220, height: 50)
+//                        .background{
+//                            RoundedRectangle(cornerRadius: 15)
+//                                .fill(Color(red: 0.926, green: 0.946, blue: 1.001))
+//                        }
+//                }
             
-            Button {
-                
-            } label: {
+            NavigationLink(destination: LogInView()) {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 220, height: 50)
                     .overlay {
-                        Text("Send OTP")
+                        Text("Log In")
                             .font(Font.custom("SF Pro Display", size: 20))
                             .foregroundColor(.white)
                             .bold()
                     }
-            }.padding()
+            }
+        
             
             NavigationLink(destination: SignUpView()) {
                 Text("Sign Up")
