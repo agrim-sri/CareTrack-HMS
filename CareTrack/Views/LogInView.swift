@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
-
+import Firebase
 struct LogInView: View {
     
     @State var email: String = ""
     @State var password: String = ""
     @StateObject var login = LogInViewModel()
+    @State var showAlert: Bool = false
+    @State var alertMessage: String = ""
     @AppStorage("signIn") var isSignIn: Bool = false
 
     
@@ -71,10 +73,7 @@ struct LogInView: View {
                             }
                         
                         Button {
-                            let x = login.verifyUser(email: email, password: password)
-                            if x == true{
-                                isSignIn.toggle()
-                            }
+                            verifyUser(email: email, password: password)
                             
                         } label: {
                             RoundedRectangle(cornerRadius: 15)
@@ -91,9 +90,25 @@ struct LogInView: View {
                     .padding(.top, 50)
                     
                 }
+        }.alert(isPresented: $showAlert) {
+            Alert(title: Text("Alert"),message: Text(alertMessage))
         }
         
         
+    }
+    func verifyUser(email: String, password: String){
+        Auth.auth().signIn(withEmail: email, password: password){ result, error in
+            
+            if(error != nil){
+                print(error?.localizedDescription)
+                self.alertMessage = error!.localizedDescription
+                self.showAlert.toggle()
+                return
+            }
+            
+            print("Welcome!")
+            isSignIn.toggle()
+        }
     }
 }
 
