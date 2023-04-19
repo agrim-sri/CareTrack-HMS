@@ -124,7 +124,6 @@ struct PatientDashboardView: View {
                             HStack{
                                 Text("Your Medication is almost done!")
                                     .font(Font.custom("SF Pro Display Bold", size: 25))
-                                    .foregroundColor(.green)
                                     .padding(.trailing)
                                 ZStack{
                                     Circle()
