@@ -77,14 +77,14 @@ struct PatientProfileView: View {
                 
             } label: {
                 RoundedRectangle(cornerRadius: 15)
-                    
                     .frame(width: 150, height: 40)
+                    .foregroundColor(.red)
                     .padding()
                     .overlay {
                         Text("Log Out")
+                            .foregroundColor(.white)
                             .font(Font.custom("Archivo", size: 17))
                             .fontWeight(.medium)
-                        
                     }
             }
         }
