@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331980EB29F0510C00988111 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 331980EA29F0510C00988111 /* SF-Pro-Display-Semibold.otf */; };
 		3343E9B329ECFD3800AC73D1 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3343E9B229ECFD3800AC73D1 /* Supabase */; };
 		3343E9B529ED621200AC73D1 /* PatientDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */; };
 		3343E9B729EDB12600AC73D1 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3343E9B629EDB12600AC73D1 /* SF-Pro-Display-Bold.otf */; };
 		335DB28629EE27A00080BE3A /* SF-Pro-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 335DB28529EE27A00080BE3A /* SF-Pro-Display-Heavy.otf */; };
 		33BC9A3629EBEB3500BF688C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC9A3529EBEB3500BF688C /* SignUpView.swift */; };
 		33BC9A3929EBFE5400BF688C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC9A3829EBFE5400BF688C /* SignUpViewModel.swift */; };
+		33C08EDF29EFD9FB0060CA4F /* DepartmentSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C08EDE29EFD9FB0060CA4F /* DepartmentSelectionView.swift */; };
 		AB61895729EC55E6005BE5C6 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */; };
 		AB61895929EC5606005BE5C6 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB61895829EC5606005BE5C6 /* LogInView.swift */; };
 		AB813A0029EB0E2400997731 /* CareTrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8139FF29EB0E2400997731 /* CareTrackApp.swift */; };
@@ -31,11 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		331980EA29F0510C00988111 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDashboardView.swift; sourceTree = "<group>"; };
 		3343E9B629EDB12600AC73D1 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		335DB28529EE27A00080BE3A /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
 		33BC9A3529EBEB3500BF688C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		33BC9A3829EBFE5400BF688C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		33C08EDE29EFD9FB0060CA4F /* DepartmentSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentSelectionView.swift; sourceTree = "<group>"; };
 		AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		AB61895829EC5606005BE5C6 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		AB8139FC29EB0E2400997731 /* CareTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +135,7 @@
 				33BC9A3529EBEB3500BF688C /* SignUpView.swift */,
 				AB61895829EC5606005BE5C6 /* LogInView.swift */,
 				3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */,
+				33C08EDE29EFD9FB0060CA4F /* DepartmentSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				AB813A2429EB26C500997731 /* SF-Pro-Display-Light.otf */,
 				3343E9B629EDB12600AC73D1 /* SF-Pro-Display-Bold.otf */,
 				335DB28529EE27A00080BE3A /* SF-Pro-Display-Heavy.otf */,
+				331980EA29F0510C00988111 /* SF-Pro-Display-Semibold.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -216,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331980EB29F0510C00988111 /* SF-Pro-Display-Semibold.otf in Resources */,
 				AB813A1F29EB1DD100997731 /* Archivo-VariableFont_wdth,wght.ttf in Resources */,
 				AB813A0729EB0E2500997731 /* Preview Assets.xcassets in Resources */,
 				335DB28629EE27A00080BE3A /* SF-Pro-Display-Heavy.otf in Resources */,
@@ -234,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33BC9A3629EBEB3500BF688C /* SignUpView.swift in Sources */,
+				33C08EDF29EFD9FB0060CA4F /* DepartmentSelectionView.swift in Sources */,
 				AB61895929EC5606005BE5C6 /* LogInView.swift in Sources */,
 				AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */,
 				33BC9A3929EBFE5400BF688C /* SignUpViewModel.swift in Sources */,
