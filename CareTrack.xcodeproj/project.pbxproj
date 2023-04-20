@@ -257,6 +257,7 @@
 				3343E9B529ED621200AC73D1 /* PatientDashboardView.swift in Sources */,
 				AB61895729EC55E6005BE5C6 /* LogInViewModel.swift in Sources */,
 				AB813A0029EB0E2400997731 /* CareTrackApp.swift in Sources */,
+				1C641B7D29F1044F001C67C2 /* PatientRecordsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
