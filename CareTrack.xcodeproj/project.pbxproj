@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C641B8129F138D6001C67C2 /* PaitentRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C641B8029F138D6001C67C2 /* PaitentRecordView.swift */; };
 		1C641B8329F13996001C67C2 /* PatientPrescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C641B8229F13996001C67C2 /* PatientPrescriptionView.swift */; };
+		1F9AC36529F1A2D500C20257 /* PatientProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9AC36429F1A2D500C20257 /* PatientProfileView.swift */; };
 		1FAB325C29F12DB000228144 /* DoctorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB325B29F12DB000228144 /* DoctorSelectionView.swift */; };
 		1FAB325E29F12E0100228144 /* doctorListingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB325D29F12E0100228144 /* doctorListingCard.swift */; };
 		331980EB29F0510C00988111 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 331980EA29F0510C00988111 /* SF-Pro-Display-Semibold.otf */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		1C641B8029F138D6001C67C2 /* PaitentRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaitentRecordView.swift; sourceTree = "<group>"; };
 		1C641B8229F13996001C67C2 /* PatientPrescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientPrescriptionView.swift; sourceTree = "<group>"; };
+		1F9AC36429F1A2D500C20257 /* PatientProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientProfileView.swift; sourceTree = "<group>"; };
 		1FAB325B29F12DB000228144 /* DoctorSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSelectionView.swift; sourceTree = "<group>"; };
 		1FAB325D29F12E0100228144 /* doctorListingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doctorListingCard.swift; sourceTree = "<group>"; };
 		331980EA29F0510C00988111 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				1FAB325B29F12DB000228144 /* DoctorSelectionView.swift */,
 				1C641B8029F138D6001C67C2 /* PaitentRecordView.swift */,
 				1FAB325D29F12E0100228144 /* doctorListingCard.swift */,
+				1F9AC36429F1A2D500C20257 /* PatientProfileView.swift */,
 				1C641B8229F13996001C67C2 /* PatientPrescriptionView.swift */,
 				48E332E729F16127001078AA /* SlotBookView.swift */,
 			);
@@ -265,6 +268,7 @@
 				33C08EDF29EFD9FB0060CA4F /* DepartmentSelectionView.swift in Sources */,
 				9E16397829F13C6800F3D25B /* Doctor.swift in Sources */,
 				AB61895929EC5606005BE5C6 /* LogInView.swift in Sources */,
+				1F9AC36529F1A2D500C20257 /* PatientProfileView.swift in Sources */,
 				AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */,
 				48E332E829F16127001078AA /* SlotBookView.swift in Sources */,
 				1FAB325C29F12DB000228144 /* DoctorSelectionView.swift in Sources */,
