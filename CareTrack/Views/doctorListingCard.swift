@@ -8,12 +8,6 @@
 import SwiftUI
 
 
-struct Doctor{
-    var name:String
-    var depatment : String
-    var experience : Int
-    var image: UIImage
-}
 class ViewModel {
     @Published var data :[Doctor] = [
         Doctor(name: "Dr. Mim Akhter", depatment: "Surgeon", experience: 5, image: UIImage(imageLiteralResourceName: "docImg"))
