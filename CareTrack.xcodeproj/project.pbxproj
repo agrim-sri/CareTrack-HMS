@@ -76,6 +76,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		9E16396929F12EA200F3D25B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AB8139F329EB0E2400997731 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				AB813A2029EB1E5200997731 /* Info.plist */,
+				9E16396929F12EA200F3D25B /* Model */,
 				33BC9A3729EBFE2A00BF688C /* ViewModel */,
 				AB813A2329EB21C800997731 /* Fonts */,
 				AB813A1A29EB16F500997731 /* Views */,
