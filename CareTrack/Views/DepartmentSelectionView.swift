@@ -41,22 +41,25 @@ struct DepartmentSelectionView: View {
                         .padding(.top)
                     LazyVGrid(columns: columns) {
                         ForEach(dict.sorted(by: >), id: \.key){key,value in
-                            VStack{
-                                Image(value)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
+                            NavigationLink(destination: DoctorSelectionView()) {
+                                VStack{
+                                    Image(value)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
 
-                                    .frame(width: UIScreen.screenWidth * 0.3)
-                                Text(key)
-                                    .font(Font.custom("SF Pro Display Semibold", size: 16))
+                                        .frame(width: UIScreen.screenWidth * 0.3)
+                                    Text(key)
+                                        .font(Font.custom("SF Pro Display Semibold", size: 16))
+                                }
+                                .background {
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .foregroundColor(.white)
+                                        .shadow(radius: 3)
+                                }
+                                .padding(.leading)
+                                .padding(.trailing)
                             }
-                            .background {
-                                RoundedRectangle(cornerRadius: 15)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 3)
-                            }
-                            .padding(.leading)
-                            .padding(.trailing)
+                            
                             
                         }
                         
