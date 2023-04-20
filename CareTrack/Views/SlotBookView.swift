@@ -25,6 +25,7 @@ struct SlotBookView: View {
     let startingDate:Date=Calendar.current.date(from: DateComponents(year: 2023)) ?? Date()
     let endingDate:Date = Date()
     @State var screenWidth = UIScreen.main.bounds.width*0.9
+    @State var selectedButton: Int = -1
     var body: some View {
         VStack{
             Spacer()
@@ -92,16 +93,22 @@ struct SlotBookView: View {
 //                    .frame(width: screenWidth,height: 250)
 //                    .foregroundColor(.white)
                 LazyVGrid(columns: Columns){
-                    ForEach(0..<9){
-                        index in
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(.blue,lineWidth: 3)
-                            .foregroundColor(.white)
-                            .frame(height: 50)
-                            .overlay(
-                                Text("\(index)-\(index+10)")
-                            )
-                            .font(.system(size: 20))
+                    ForEach(0..<9){index in
+                        
+                        Button{
+                            selectedButton = index
+                        }label: {
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(.blue,lineWidth: 3)
+                                .background(selectedButton == index ? .blue : .white)
+                                .frame(height: 50)
+                                .overlay(
+                                    Text("\(index)-\(index+10)")
+                                        .foregroundColor(.black)
+                                )
+                                .font(.system(size: 20))
+                        }
+                        
                     }.padding(.top)
                         .padding(.trailing)
                     
