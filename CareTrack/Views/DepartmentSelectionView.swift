@@ -17,6 +17,11 @@ struct DepartmentSelectionView: View {
     let imageData: [String] = ["Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General"]
     let imageText: [String] = ["Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General"]
     
+    let dict: [String : String] = ["Surgery" : "Surgery",
+                                   "Neurology" : "Neurology",
+                                   "General" : "General"
+    ]
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -35,14 +40,14 @@ struct DepartmentSelectionView: View {
                         .font(Font.custom("SF Pro Display Semibold", size: 16))
                         .padding(.top)
                     LazyVGrid(columns: columns) {
-                        ForEach(0..<imageData.count, id: \.self){j in
+                        ForEach(dict.sorted(by: >), id: \.key){key,value in
                             VStack{
-                                Image(imageData[j])
+                                Image(value)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
 
                                     .frame(width: UIScreen.screenWidth * 0.3)
-                                Text(imageText[j])
+                                Text(key)
                                     .font(Font.custom("SF Pro Display Semibold", size: 16))
                             }
                             .background {
@@ -63,6 +68,13 @@ struct DepartmentSelectionView: View {
                 
         }.searchable(text: $search)
     }
+    var searchResults: [String: String] {
+            if search.isEmpty {
+                return dict
+            } else {
+                return dict.filter {$0.key.contains(search) }
+            }
+        }
 }
 
 struct DepartmentSelectionView_Previews: PreviewProvider {
