@@ -14,14 +14,13 @@ struct DoctorSelectionView: View {
      var body: some View {
 
              ScrollView(showsIndicators: false){
-                 doctorListingCard()
-                 doctorListingCard()
-                 doctorListingCard()
-                 doctorListingCard()
-                 doctorListingCard()
-                 doctorListingCard()
-                 doctorListingCard()
-                 doctorListingCard()
+                 ForEach(0..<4){ i in
+                     NavigationLink(destination: SlotBookView()) {
+                         doctorListingCard()
+
+                     }
+                 }
+                
                  
              }
              .navigationTitle("Doctors")
