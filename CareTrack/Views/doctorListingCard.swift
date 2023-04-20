@@ -8,11 +8,6 @@
 import SwiftUI
 
 
-class ViewModel {
-    @Published var data :[Doctor] = [
-        Doctor(name: "Dr. Mim Akhter", depatment: "Surgeon", experience: 5, image: UIImage(imageLiteralResourceName: "docImg"))
-    ]
-}
 
 struct doctorListingCard: View {
     @State var customBlue:Color = Color(red: 0, green: 125/255, blue: 254/255)
