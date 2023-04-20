@@ -15,7 +15,7 @@ struct ContentView: View {
                     Image(systemName: "house")
                     Text("Dashboard")
                 }
-            PatientDashboardView()
+            DoctorSelectionView()
                 .tabItem {
                     Image(systemName: "list.clipboard")
                     Text("Record")
