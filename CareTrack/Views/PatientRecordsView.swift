@@ -12,6 +12,7 @@ struct PatientRecordsView: View {
     let docname:[String] = ["Dr. Aryan","Dr. Mim","Dr. Khanna"]
     let depname: [String] = ["Cardiology","Physician","Radiology"]
     var body: some View {
+        
         ScrollView(showsIndicators: false){
             VStack{
                 Text("Records")
