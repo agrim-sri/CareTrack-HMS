@@ -11,6 +11,7 @@
 		3343E9B529ED621200AC73D1 /* PatientDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */; };
 		33BC9A3629EBEB3500BF688C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC9A3529EBEB3500BF688C /* SignUpView.swift */; };
 		33BC9A3929EBFE5400BF688C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC9A3829EBFE5400BF688C /* SignUpViewModel.swift */; };
+		48FB35FB29F0F26E002E54BF /* SlotBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FB35FA29F0F26E002E54BF /* SlotBookingView.swift */; };
 		AB61895729EC55E6005BE5C6 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */; };
 		AB61895929EC5606005BE5C6 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB61895829EC5606005BE5C6 /* LogInView.swift */; };
 		AB813A0029EB0E2400997731 /* CareTrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8139FF29EB0E2400997731 /* CareTrackApp.swift */; };
@@ -32,6 +33,7 @@
 		3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDashboardView.swift; sourceTree = "<group>"; };
 		33BC9A3529EBEB3500BF688C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		33BC9A3829EBFE5400BF688C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		48FB35FA29F0F26E002E54BF /* SlotBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotBookingView.swift; sourceTree = "<group>"; };
 		AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		AB61895829EC5606005BE5C6 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		AB8139FC29EB0E2400997731 /* CareTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 				33BC9A3529EBEB3500BF688C /* SignUpView.swift */,
 				AB61895829EC5606005BE5C6 /* LogInView.swift */,
 				3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */,
+				48FB35FA29F0F26E002E54BF /* SlotBookingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33BC9A3629EBEB3500BF688C /* SignUpView.swift in Sources */,
+				48FB35FB29F0F26E002E54BF /* SlotBookingView.swift in Sources */,
 				AB61895929EC5606005BE5C6 /* LogInView.swift in Sources */,
 				AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */,
 				33BC9A3929EBFE5400BF688C /* SignUpViewModel.swift in Sources */,
