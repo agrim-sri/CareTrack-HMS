@@ -17,14 +17,13 @@ struct CareTrackApp: App {
 
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                if !isSignIn{
-                    OnBoardingView()
-                }
-                else{
-                    ContentView()
-                }
-            }.navigationViewStyle(.stack)
+            if !isSignIn{
+                OnBoardingView()
+            }
+            else{
+                ContentView()
+            }
+            
         }
     }
 }
