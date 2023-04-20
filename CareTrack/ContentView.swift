@@ -17,22 +17,22 @@ struct ContentView: View {
                 }
             PatientDashboardView()
                 .tabItem {
-                    Image(systemName: "house")
+                    Image(systemName: "list.clipboard")
                     Text("Record")
                 }
-            PatientDashboardView()
+            DepartmentSelectionView()
                 .tabItem {
-                    Image(systemName: "house")
+                    Image(systemName: "plus.circle")
                     Text("Book")
                 }
             PatientDashboardView()
                 .tabItem {
-                    Image(systemName: "house")
+                    Image(systemName: "staroflife")
                     Text("Vital")
                 }
             PatientDashboardView()
                 .tabItem {
-                    Image(systemName: "house")
+                    Image(systemName: "gearshape")
                     Text("Profile")
                 }
         }
