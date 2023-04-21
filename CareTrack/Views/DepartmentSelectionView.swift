@@ -40,7 +40,7 @@ struct DepartmentSelectionView: View {
                         .font(Font.custom("SF Pro Display Semibold", size: 16))
                         .padding(.top)
                     LazyVGrid(columns: columns) {
-                        ForEach(dict.sorted(by: >), id: \.key){key,value in
+                        ForEach(searchResults.sorted(by: >), id: \.key){key,value in
                             NavigationLink(destination: DoctorSelectionView()) {
                                 VStack{
                                     Image(value)
@@ -50,6 +50,7 @@ struct DepartmentSelectionView: View {
                                         .frame(width: UIScreen.screenWidth * 0.3)
                                     Text(key)
                                         .font(Font.custom("SF Pro Display Semibold", size: 16))
+                                        .foregroundColor(.black)
                                 }
                                 .background {
                                     RoundedRectangle(cornerRadius: 15)
