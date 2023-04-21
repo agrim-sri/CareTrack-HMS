@@ -14,8 +14,6 @@ extension UIScreen{
 }
 
 struct DepartmentSelectionView: View {
-    let imageData: [String] = ["Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General"]
-    let imageText: [String] = ["Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General"]
     
     let dict: [String : String] = ["Surgery" : "Surgery",
                                    "Neurology" : "Neurology",
@@ -41,7 +39,7 @@ struct DepartmentSelectionView: View {
                         .padding(.top)
                     LazyVGrid(columns: columns) {
                         ForEach(searchResults.sorted(by: >), id: \.key){key,value in
-                            NavigationLink(destination: DoctorSelectionView()) {
+                            NavigationLink(destination: DoctorSelectionView(department: key)) {
                                 VStack{
                                     Image(value)
                                         .resizable()
