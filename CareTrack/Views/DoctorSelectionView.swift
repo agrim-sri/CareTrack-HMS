@@ -21,7 +21,7 @@ struct DoctorSelectionView: View {
 
              ScrollView(showsIndicators: false){
                  ForEach(searchResults.sorted(by: >), id: \.key){ key,value in
-                     NavigationLink(destination: SlotBookView()) {
+                     NavigationLink(destination: SlotBookView(docName: key,department: department,experience: value)) {
                          doctorListingCard(docName: key,department: department,experience: value)
 
                      }

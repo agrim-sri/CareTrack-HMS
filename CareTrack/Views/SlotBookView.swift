@@ -26,13 +26,17 @@ struct SlotBookView: View {
     let endingDate:Date = Date()
     @State var screenWidth = UIScreen.main.bounds.width*0.9
     @State var selectedButton: Int = -1
+    var docName: String = ""
+    var department: String = ""
+    var degree: String = "MD Cardiology"
+    var experience: Int = 0
     var body: some View {
         VStack{
             Spacer()
             VStack(spacing:5){
                 HStack{
                     VStack{
-                        Text("Dr Mohan Kakkar")
+                        Text(docName)
                             .foregroundColor(.black)
                             .font(Font.custom("SF Pro Display Bold", size: 30))
                         
@@ -40,18 +44,18 @@ struct SlotBookView: View {
                             .padding(.top)
                             .padding(.leading)
                             .padding(.bottom,3)
-                        Text("Cardiology")
+                        Text(department)
                             .frame(maxWidth:.infinity,alignment: .leading)
                             .font(Font.custom("SF Pro Display Bold",size:24))
                             .padding(.leading)
                             .padding(.bottom,3)
-                        Text("MD Cardiology")
+                        Text(degree)
                             .frame(maxWidth:.infinity,alignment: .leading)
                             .font(Font.custom("SF Pro Display Regular",size:20))
                             .padding(.bottom,3)
                             .padding(.leading)
                         
-                        Text("15 Years Of Experience")
+                        Text("\(experience) Years Of Experience")
                             .frame(maxWidth:.infinity,alignment: .leading)
                             .font(Font.custom("SF Pro Display Regular",size:20))
                             .padding(.leading)
@@ -70,9 +74,6 @@ struct SlotBookView: View {
                     .padding(.top,35)
                 
                 DatePicker("Select Date For Appointment :",selection: $appointmentDate,in: range,displayedComponents: .date)
-                
-                
-                
                     .padding()
                 HStack{
                     Text("Time Slot Selection")
