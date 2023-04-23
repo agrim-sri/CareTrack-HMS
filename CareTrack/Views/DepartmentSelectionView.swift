@@ -14,71 +14,100 @@ extension UIScreen{
 }
 
 struct DepartmentSelectionView: View {
-    let imageData: [String] = ["Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General"]
-    let imageText: [String] = ["Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General","Surgery", "Neurology", "General"]
     
     let dict: [String : String] = ["Surgery" : "Surgery",
                                    "Neurology" : "Neurology",
-                                   "General" : "General"
+                                   "General" : "General",
+                                   "Sonography" : "Sonography",
+                                   "Vaccination" : "Vaccination"
     ]
     
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
-        GridItem(.flexible())
 
     ]
+    @State var showMore: Bool = false
     @State var search: String = ""
     var body: some View {
         NavigationView{
-            ScrollView(showsIndicators: false) {
-                VStack{
-                    
-                    Text("Departments")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading)
-                        .font(Font.custom("SF Pro Display Semibold", size: 16))
-                        .padding(.top)
-                    LazyVGrid(columns: columns) {
-                        ForEach(searchResults.sorted(by: >), id: \.key){key,value in
-                            NavigationLink(destination: DoctorSelectionView()) {
-                                VStack{
-                                    Image(value)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
+            ZStack {
+                Color(red: 0.949, green: 0.949, blue: 0.949)
+                    .ignoresSafeArea()
+                ScrollView(showsIndicators: false) {
+                    VStack{
+                        
+                        Text("Departments")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                            .font(Font.custom("SF Pro Display Semibold", size: 16))
+                            .padding(.top)
+                        LazyVGrid(columns: columns) {
+                            ForEach(searchResults.sorted(by: >), id: \.key){key,value in
+                                NavigationLink(destination: DoctorSelectionView(department: key)) {
+                                    VStack{
+                                        Image(value)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .padding()
 
-                                        .frame(width: UIScreen.screenWidth * 0.3)
-                                    Text(key)
-                                        .font(Font.custom("SF Pro Display Semibold", size: 16))
-                                        .foregroundColor(.black)
+                                        Text(key)
+                                            .font(Font.custom("SF Pro Display Semibold", size: 16))
+                                            .foregroundColor(.black)
+                                            .padding(.bottom)
+                                            
+                                    }
+                                    .background {
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .foregroundColor(.white)
+                                            .shadow(radius: 3)
+                                    }
+                                    .padding(.leading)
+                                    .padding(.trailing)
+                                    .padding(.bottom)
                                 }
-                                .background {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .foregroundColor(.white)
-                                        .shadow(radius: 3)
-                                }
-                                .padding(.leading)
-                                .padding(.trailing)
+                                
+                                
                             }
                             
-                            
                         }
-                        
+                        if !showMore {
+                            Button{
+                                showMore.toggle()
+                            }label: {
+                                Text("Show More")
+                            }
+                        }
+                        Spacer()
                     }
-                    Spacer()
-                }
 
-            }.navigationTitle(Text("Book Appointment"))
+                }.navigationTitle(Text("Book Appointment"))
+            }
                 
         }.searchable(text: $search)
     }
     var searchResults: [String: String] {
-            if search.isEmpty {
-                return dict
-            } else {
+        var temp: [String : String] = [:]
+        var count = 0
+            if search.isEmpty && !showMore {
+                for (i,j) in dict{
+                    if count<4{
+                        temp[i] = j
+
+                    }
+                    count += 1
+                }
+                return temp
+            }
+            
+        else if showMore && search.isEmpty{
+            return dict
+        }
+        
+            else {
                 return dict.filter {$0.key.contains(search) }
             }
-        }
+    }
 }
 
 struct DepartmentSelectionView_Previews: PreviewProvider {
