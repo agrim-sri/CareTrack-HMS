@@ -36,3 +36,12 @@ class Doctor: Identifiable, ObservableObject {
         case doctorID, name, email, specialty, unavailability, qualification, yearsOfExperience, image
     }
 }
+
+class Doctors: ObservableObject {
+    var doctors: [Doctor]
+    
+    init() {
+        doctors = [Doctor]()
+    }
+    
+}
