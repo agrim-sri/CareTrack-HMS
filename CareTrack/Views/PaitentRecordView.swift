@@ -13,48 +13,52 @@ struct PaitentRecordView: View {
     let depname: [String] = ["Cardiology","Physician","Radiology"]
     var body: some View {
         NavigationView {
-            ScrollView(showsIndicators: false){
-                VStack{
+            ZStack {
+                Color(red: 0.949, green: 0.949, blue: 0.949)
+                    .ignoresSafeArea()
+                ScrollView(showsIndicators: false){
+                    VStack{
+                          
+                        ForEach(0..<depname.count){ i in
+                            NavigationLink(destination: PatientPrescriptionView()) {
+                                HStack{
+                                    VStack(alignment: .leading,spacing:15){
+                                        Text("Date: \(datesarray[i])")
+                                            .font(Font.custom("SF Pro Display Bold", size: 28))
+                                            .foregroundColor(.white)
+                                        Text(docname[i])
+                                            .font(Font.custom("SF Pro Display Semibold", size: 24))
+                                            .foregroundColor(.white)
+                                            .padding(.top)
+
+                                        Text(depname[i])
+                                            .font(Font.custom("SF Pro Display Light", size: 24))
+                                            .foregroundColor(.white)
+
+                                        
+                                    }.padding()
+                                        .padding(.leading)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .padding(.trailing)
+                                }
+                                .background{
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(.blue)
+                                        .frame(width: UIScreen.screenWidth - 32)
+                                }
+                                .padding(.top)
+                            }
                       
-                    ForEach(0..<depname.count){ i in
-                        NavigationLink(destination: PatientPrescriptionView()) {
-                            HStack{
-                                VStack(alignment: .leading,spacing:15){
-                                    Text("Date: \(datesarray[i])")
-                                        .font(Font.custom("SF Pro Display Bold", size: 28))
-                                        .foregroundColor(.white)
-                                    Text(docname[i])
-                                        .font(Font.custom("SF Pro Display Semibold", size: 24))
-                                        .foregroundColor(.white)
-                                        .padding(.top)
-
-                                    Text(depname[i])
-                                        .font(Font.custom("SF Pro Display Light", size: 24))
-                                        .foregroundColor(.white)
-
-                                    
-                                }.padding()
-                                    .padding(.leading)
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .padding(.trailing)
-                            }
-                            .background{
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(.blue)
-                                    .frame(width: UIScreen.screenWidth - 32)
-                            }
-                            .padding(.top)
                         }
-                  
+                        Spacer()
+                        
                     }
-                    Spacer()
-                    
                 }
+                .navigationTitle(Text("Records"))
             }
-            .navigationTitle(Text("Records"))
         }
     }
 }

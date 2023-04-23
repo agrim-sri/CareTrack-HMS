@@ -17,29 +17,83 @@ struct DoctorSelectionView: View {
                             ]
     var department: String = ""
     let experience: [Int] = [5,3,6]
-     var body: some View {
-
-             ScrollView(showsIndicators: false){
-                 ForEach(searchResults.sorted(by: >), id: \.key){ key,value in
-                     NavigationLink(destination: SlotBookView(docName: key,department: department,experience: value)) {
-                         doctorListingCard(docName: key,department: department,experience: value)
-
-                     }
-                 }
+    var body: some View {
+        ZStack{
+            Color(red: 0.949, green: 0.949, blue: 0.949)
+                .ignoresSafeArea()
+            ScrollView(showsIndicators: false){
+                ForEach(searchResults.sorted(by: >), id: \.key){ key,value in
+                    NavigationLink(destination: SlotBookView(docName: key,department: department,experience: value)) {
+                        
+                        VStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 30)
+                                    .frame(width: UIScreen.screenWidth - 32,height: 150)
+                                    .foregroundColor(.white)
+                                    .shadow(radius: 3)
+                                HStack{
+                                    VStack(alignment: .leading,spacing: 5){
+                                        Text(key)
+                                            .font(Font.custom("SF Pro Display", size: 24))
+                                            .fontWeight(.bold)
+                                            .multilineTextAlignment(.leading)
+                                            .foregroundColor(.black)
+                                        Text(department)
+                                            .font(Font.custom("SF Pro Display", size: 16))
+                                            .foregroundColor(.secondary)
+                                        Text("Experience : \(value) years")
+                                            .font(Font.custom("SF Pro Display", size: 16))
+                                            .foregroundColor(.black)
+                                        
+                                        HStack{
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.yellow)
+                                            Text("4.5")
+                                                .font(Font.custom("SF Pro Display", size: 16))
+                                                .foregroundColor(.black)
+                                        }
+                                    }
+                                    .padding()
+                                    Spacer()
+                                    Image("docImg")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 80, height: 80)
+                                        .cornerRadius(20)
+                                        .clipped()
+                                    
+                                    Image(systemName: "chevron.right")
+                                        .resizable()
+                                        .frame(width: 19,height: 32,alignment: .trailing)
+                                        .fontWeight(.bold)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                }
+                                .frame(width: UIScreen.screenWidth - 32,alignment: .trailing)
+                            }
+                            
+                            
+                        }
+                        
+                        
+                        
+                    }
+                }
                 
-                 
-             }
-             .navigationTitle("Doctors")
-             .searchable(text: $searchText)
-             
+                
+            }
+            .navigationTitle("Doctors")
+            .searchable(text: $searchText)
+        }
             
     }
-    var searchResults: [String: Int] {
+        var searchResults: [String: Int] {
             if searchText.isEmpty {
                 return docDict
             } else {
                 return docDict.filter {$0.key.contains(searchText) }
             }
+            
         }
 }
 

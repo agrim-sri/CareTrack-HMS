@@ -31,127 +31,131 @@ struct SlotBookView: View {
     var degree: String = "MD Cardiology"
     var experience: Int = 0
     var body: some View {
-        VStack{
-            Spacer()
-            VStack(spacing:5){
-                HStack{
-                    VStack{
-                        Text(docName)
-                            .foregroundColor(.black)
-                            .font(Font.custom("SF Pro Display Bold", size: 30))
+        ZStack {
+            Color(red: 0.949, green: 0.949, blue: 0.949)
+                .ignoresSafeArea()
+            VStack{
+                Spacer()
+                VStack(spacing:5){
+                    HStack{
+                        VStack{
+                            Text(docName)
+                                .foregroundColor(.black)
+                                .font(Font.custom("SF Pro Display Bold", size: 30))
+                            
+                                .frame(maxWidth:.infinity,alignment: .leading)
+                                .padding(.top)
+                                .padding(.leading)
+                                .padding(.bottom,3)
+                            Text(department)
+                                .frame(maxWidth:.infinity,alignment: .leading)
+                                .font(Font.custom("SF Pro Display Bold",size:24))
+                                .padding(.leading)
+                                .padding(.bottom,3)
+                            Text(degree)
+                                .frame(maxWidth:.infinity,alignment: .leading)
+                                .font(Font.custom("SF Pro Display Regular",size:20))
+                                .padding(.bottom,3)
+                                .padding(.leading)
+                            
+                            Text("\(experience) Years Of Experience")
+                                .frame(maxWidth:.infinity,alignment: .leading)
+                                .font(Font.custom("SF Pro Display Regular",size:20))
+                                .padding(.leading)
+                        }
+                        .offset(y: CGFloat(30))
+                        Image("docImg")
+                            .resizable()
+                            .aspectRatio( contentMode: .fit)
+                            .frame(width: 150,height: 100,alignment: .trailing)
+                            .clipShape(Circle())
+                            .padding(.top)
                         
-                            .frame(maxWidth:.infinity,alignment: .leading)
+                    }
+                    
+                    Divider()
+                        .padding(.top,35)
+                    
+                    DatePicker("Select Date For Appointment :",selection: $appointmentDate,in: range,displayedComponents: .date)
+                        .padding()
+                    HStack{
+                        Text("Time Slot Selection")
+                            .font(Font.custom("SF Pro Display Regular",size: 24))
+                            .frame(maxWidth: .infinity,alignment: .leading)
                             .padding(.top)
                             .padding(.leading)
-                            .padding(.bottom,3)
-                        Text(department)
-                            .frame(maxWidth:.infinity,alignment: .leading)
-                            .font(Font.custom("SF Pro Display Bold",size:24))
-                            .padding(.leading)
-                            .padding(.bottom,3)
-                        Text(degree)
-                            .frame(maxWidth:.infinity,alignment: .leading)
-                            .font(Font.custom("SF Pro Display Regular",size:20))
-                            .padding(.bottom,3)
-                            .padding(.leading)
-                        
-                        Text("\(experience) Years Of Experience")
-                            .frame(maxWidth:.infinity,alignment: .leading)
-                            .font(Font.custom("SF Pro Display Regular",size:20))
-                            .padding(.leading)
                     }
-                    .offset(y: CGFloat(30))
-                    Image("doctor-mock")
-                        .resizable()
-                        .aspectRatio( contentMode: .fit)
-                        .frame(width: 100,height: 100,alignment: .trailing)
-                        .padding(.trailing)
-                        .padding(.top)
+                    Spacer()
+                        
+                    
                     
                 }
+    //            ZStack{
+    //                RoundedRectangle(cornerRadius: 50)
+    //                    .stroke(.blue,lineWidth:3)
+    //
+    //                    .frame(width: screenWidth,height: 250)
+    //                    .foregroundColor(.white)
+                    LazyVGrid(columns: Columns){
+                        ForEach(0..<9){index in
+                            
+                            Button{
+                                selectedButton = index
+                            }label: {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(.blue,lineWidth: 3)
+                                    .background(selectedButton == index ? .blue : .white)
+                                    .frame(height: 50)
+                                    .overlay(
+                                        Text("\(index)-\(index+10)")
+                                            .foregroundColor(.black)
+                                    )
+                                    .font(.system(size: 20))
+                            }
+                            
+                        }.padding(.top)
+                            .padding(.trailing)
+                        
+                    }
+                    
+                    
+                //}
                 
-                Divider()
-                    .padding(.top,35)
-                
-                DatePicker("Select Date For Appointment :",selection: $appointmentDate,in: range,displayedComponents: .date)
-                    .padding()
                 HStack{
-                    Text("Time Slot Selection")
-                        .font(Font.custom("SF Pro Display Regular",size: 24))
-                        .frame(maxWidth: .infinity,alignment: .leading)
-                        .padding(.top)
-                        .padding(.leading)
-                }
-                Spacer()
-                    
-                
-                
-            }
-//            ZStack{
-//                RoundedRectangle(cornerRadius: 50)
-//                    .stroke(.blue,lineWidth:3)
-//
-//                    .frame(width: screenWidth,height: 250)
-//                    .foregroundColor(.white)
-                LazyVGrid(columns: Columns){
-                    ForEach(0..<9){index in
+                    Button() {
                         
-                        Button{
-                            selectedButton = index
-                        }label: {
+                    }label: {
+                        Text("Book Slot")
+                            .padding(.horizontal,60)
+                            .padding(.vertical,8)
+                            .foregroundColor(.white)
+                            .background(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(.blue,lineWidth: 3)
-                                .background(selectedButton == index ? .blue : .white)
-                                .frame(height: 50)
-                                .overlay(
-                                    Text("\(index)-\(index+10)")
-                                        .foregroundColor(.black)
-                                )
-                                .font(.system(size: 20))
-                        }
-                        
+                                .fill(.blue)
+                            )
+                            
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(.blue,lineWidth: 2)
+                            }
+                            
+                            
                     }.padding(.top)
-                        .padding(.trailing)
+                    .buttonStyle(.plain)
                     
+                }
+                .padding(.bottom,70)
+                Spacer()
+                 
+                
+                
+                        
+                      
                 }
                 
                 
-            //}
-            
-            HStack{
-                Button() {
-                    
-                }label: {
-                    Text("Book Slot")
-                        .padding(.horizontal,60)
-                        .padding(.vertical,8)
-                        .foregroundColor(.white)
-                        .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(.blue)
-                        )
-                        
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(.blue,lineWidth: 2)
-                        }
-                        
-                        
-                }.padding(.top)
-                .buttonStyle(.plain)
-                
-            }
-            .padding(.bottom,70)
-            Spacer()
-             
-            
-            
-                    
-                  
-            }
-            
-            
-                .padding(.bottom,100)
+            .padding(.bottom,100)
+        }
         }
        
     }
