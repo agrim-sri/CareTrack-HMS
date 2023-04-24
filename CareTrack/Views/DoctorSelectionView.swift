@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DoctorSelectionView: View {
     
+    @ObservedObject var model = DoctorSelectionViewModel()
+    
     @State var searchText = ""
     @State var customBlue:CGColor = CGColor(red: 0.139, green: 0.561, blue: 0.996, alpha: 1)
     let docDict: [String: Int] = ["Dr. Omkar Oberoi": 5,
@@ -22,8 +24,8 @@ struct DoctorSelectionView: View {
             Color(red: 0.949, green: 0.949, blue: 0.949)
                 .ignoresSafeArea()
             ScrollView(showsIndicators: false){
-                ForEach(searchResults.sorted(by: >), id: \.key){ key,value in
-                    NavigationLink(destination: SlotBookView(docName: key,department: department,experience: value)) {
+                ForEach(model.list){ d in
+                    NavigationLink(destination: SlotBookView(docName: d.name,department: d.department,experience: d.yearsOfExperience)) {
                         
                         VStack{
                             ZStack{
@@ -33,15 +35,15 @@ struct DoctorSelectionView: View {
                                     .shadow(radius: 3)
                                 HStack{
                                     VStack(alignment: .leading,spacing: 5){
-                                        Text(key)
+                                        Text(d.name)
                                             .font(Font.custom("SF Pro Display", size: 24))
                                             .fontWeight(.bold)
                                             .multilineTextAlignment(.leading)
                                             .foregroundColor(.black)
-                                        Text(department)
+                                        Text(d.department)
                                             .font(Font.custom("SF Pro Display", size: 16))
                                             .foregroundColor(.secondary)
-                                        Text("Experience : \(value) years")
+                                        Text("Experience : \(d.yearsOfExperience) years")
                                             .font(Font.custom("SF Pro Display", size: 16))
                                             .foregroundColor(.black)
                                         
@@ -84,6 +86,8 @@ struct DoctorSelectionView: View {
             }
             .navigationTitle("Doctors")
             .searchable(text: $searchText)
+        }.task{
+            model.getData()
         }
             
     }

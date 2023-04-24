@@ -125,8 +125,7 @@ struct SignUpView: View {
                             }
                         Button{
                             if email != "" && password != ""{
-                                signup.registerUser(email: email, password: password)
-                            }
+                                signup.registerUser(email: email, password: password, name: "hello", age: 5, pNumber: 8427600145, Gender: "Male")                            }
                             
                         }label: {
                             Text("Sign Up")
