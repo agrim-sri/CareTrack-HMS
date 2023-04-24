@@ -122,9 +122,7 @@ struct SlotBookView: View {
                 //}
                 
                 HStack{
-                    Button() {
-                        
-                    }label: {
+                    NavigationLink(destination: BookingReviewView(name: docName,dept: department)) {
                         Text("Book Slot")
                             .padding(.horizontal,60)
                             .padding(.vertical,8)
@@ -138,10 +136,8 @@ struct SlotBookView: View {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(.blue,lineWidth: 2)
                             }
-                            
-                            
-                    }.padding(.top)
-                    .buttonStyle(.plain)
+                    }
+                    
                     
                 }
                 .padding(.bottom,70)
