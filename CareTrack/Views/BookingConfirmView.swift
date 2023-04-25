@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BookingReviewView: View {
+struct BookingConfirmView: View {
     var name: String = ""
     var dept: String = ""
     var body: some View {
@@ -137,6 +137,6 @@ struct BookingReviewView: View {
 
 struct BookingReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        BookingReviewView()
+        BookingConfirmView()
     }
 }
