@@ -11,29 +11,14 @@ import SwiftUI
 enum Status{
     case Upcomming
     case Completed
-    case Cancelled
 }
 
-class Appointment{
-    let appointmentId: String
-    let doctorId: String
-    let patientId: String
+struct Appointment{
+    var appointmentId: String
+    var doctorId: String
+    var patientId: String
     var payIsSuccess : Bool
-    var status: Status
+    var date: Date
     
-    init(appointmentId: String, doctorId: String, patientId: String, payIsSuccess: Bool, status: Status) {
-        self.appointmentId = appointmentId
-        self.doctorId = doctorId
-        self.patientId = patientId
-        self.payIsSuccess = payIsSuccess
-        self.status = Status.Upcomming
-    }
 }
 
-class Appointments {
-    var appointments: [Appointment]
-    
-    init(appointments: [Appointment]) {
-        self.appointments = appointments
-    }
-}
