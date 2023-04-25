@@ -122,7 +122,7 @@ struct SlotBookView: View {
                 //}
                 
                 HStack{
-                    NavigationLink(destination: BookingConfirmView(name: docName,dept: department)) {
+                    NavigationLink(destination: PaymentPreviewView(name: docName,dept: department)) {
                         Text("Book Slot")
                             .padding(.horizontal,60)
                             .padding(.vertical,8)
