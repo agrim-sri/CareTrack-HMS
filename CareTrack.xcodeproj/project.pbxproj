@@ -48,6 +48,7 @@
 		ABB2003129F6662600331D5C /* PatientVitalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2003029F6662600331D5C /* PatientVitalsView.swift */; };
 		ABB2003329F6A55100331D5C /* BloodOxygenChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2003229F6A55100331D5C /* BloodOxygenChartView.swift */; };
 		ABD6811B29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6811A29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift */; };
+		ABD6811D29F7F243000B8DC0 /* DoctorPrescriptionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6811C29F7F243000B8DC0 /* DoctorPrescriptionForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		ABB2003029F6662600331D5C /* PatientVitalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientVitalsView.swift; sourceTree = "<group>"; };
 		ABB2003229F6A55100331D5C /* BloodOxygenChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodOxygenChartView.swift; sourceTree = "<group>"; };
 		ABD6811A29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmedCardView.swift; sourceTree = "<group>"; };
+		ABD6811C29F7F243000B8DC0 /* DoctorPrescriptionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorPrescriptionForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD2BD3D29F6860200E0F10C /* DoctorPatientsRecordView.swift */,
+				ABD6811C29F7F243000B8DC0 /* DoctorPrescriptionForm.swift */,
 			);
 			path = Doctors;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				1F9AC36529F1A2D500C20257 /* PatientProfileView.swift in Sources */,
 				AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */,
 				AB5B1E8929F7CCE000763FC6 /* HeartRateChartView.swift in Sources */,
+				ABD6811D29F7F243000B8DC0 /* DoctorPrescriptionForm.swift in Sources */,
 				ABD6811B29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift in Sources */,
 				AB5B1E8729F7CCA900763FC6 /* VitalCardView.swift in Sources */,
 				48E332E829F16127001078AA /* SlotBookView.swift in Sources */,
