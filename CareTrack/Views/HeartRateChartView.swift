@@ -49,3 +49,4 @@ struct HeartRateChartView_Previews: PreviewProvider {
         HeartRateChartView()
     }
 }
+

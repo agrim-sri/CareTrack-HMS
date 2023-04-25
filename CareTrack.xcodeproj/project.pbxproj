@@ -27,7 +27,8 @@
 		9EC1BC3929F690F000975656 /* DoctorSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC1BC3829F690F000975656 /* DoctorSelectionViewModel.swift */; };
 		9EFFA71229F1443E005EBC94 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFFA71129F1443E005EBC94 /* Patient.swift */; };
 		9EFFA71429F147B6005EBC94 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFFA71329F147B6005EBC94 /* Appointment.swift */; };
-		AB5B1E8529F7AB0C00763FC6 /* HeartRateChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5B1E8429F7AB0C00763FC6 /* HeartRateChartView.swift */; };
+		AB5B1E8729F7CCA900763FC6 /* VitalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5B1E8629F7CCA900763FC6 /* VitalCardView.swift */; };
+		AB5B1E8929F7CCE000763FC6 /* HeartRateChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5B1E8829F7CCE000763FC6 /* HeartRateChartView.swift */; };
 		AB61895729EC55E6005BE5C6 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */; };
 		AB61895929EC5606005BE5C6 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB61895829EC5606005BE5C6 /* LogInView.swift */; };
 		AB813A0029EB0E2400997731 /* CareTrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8139FF29EB0E2400997731 /* CareTrackApp.swift */; };
@@ -68,7 +69,8 @@
 		9EC1BC3829F690F000975656 /* DoctorSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSelectionViewModel.swift; sourceTree = "<group>"; };
 		9EFFA71129F1443E005EBC94 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		9EFFA71329F147B6005EBC94 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
-		AB5B1E8429F7AB0C00763FC6 /* HeartRateChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateChartView.swift; sourceTree = "<group>"; };
+		AB5B1E8629F7CCA900763FC6 /* VitalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitalCardView.swift; sourceTree = "<group>"; };
+		AB5B1E8829F7CCE000763FC6 /* HeartRateChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateChartView.swift; sourceTree = "<group>"; };
 		AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		AB61895829EC5606005BE5C6 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		AB8139FC29EB0E2400997731 /* CareTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,10 +171,10 @@
 			children = (
 				AB813A1C29EB1A0F00997731 /* OnBoardingView.swift */,
 				ABB2003229F6A55100331D5C /* BloodOxygenChartView.swift */,
-				AB5B1E8429F7AB0C00763FC6 /* HeartRateChartView.swift */,
 				33BC9A3529EBEB3500BF688C /* SignUpView.swift */,
 				AB61895829EC5606005BE5C6 /* LogInView.swift */,
 				3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */,
+				AB5B1E8829F7CCE000763FC6 /* HeartRateChartView.swift */,
 				33C08EDE29EFD9FB0060CA4F /* DepartmentSelectionView.swift */,
 				1FAB325B29F12DB000228144 /* DoctorSelectionView.swift */,
 				1C641B8029F138D6001C67C2 /* PaitentRecordView.swift */,
@@ -184,6 +186,7 @@
 				ABB2002E29F24A8A00331D5C /* PatientPaymentView.swift */,
 				48E332E729F16127001078AA /* SlotBookView.swift */,
 				330F177629F7B0B5000778A4 /* BookingConfirmView.swift */,
+				AB5B1E8629F7CCA900763FC6 /* VitalCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +298,8 @@
 				AB61895929EC5606005BE5C6 /* LogInView.swift in Sources */,
 				1F9AC36529F1A2D500C20257 /* PatientProfileView.swift in Sources */,
 				AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */,
+				AB5B1E8929F7CCE000763FC6 /* HeartRateChartView.swift in Sources */,
+				AB5B1E8729F7CCA900763FC6 /* VitalCardView.swift in Sources */,
 				48E332E829F16127001078AA /* SlotBookView.swift in Sources */,
 				1FAB325C29F12DB000228144 /* DoctorSelectionView.swift in Sources */,
 				ABB2003329F6A55100331D5C /* BloodOxygenChartView.swift in Sources */,
