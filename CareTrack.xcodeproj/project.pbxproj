@@ -11,9 +11,9 @@
 		1C641B8329F13996001C67C2 /* PatientPrescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C641B8229F13996001C67C2 /* PatientPrescriptionView.swift */; };
 		1F9AC36529F1A2D500C20257 /* PatientProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9AC36429F1A2D500C20257 /* PatientProfileView.swift */; };
 		1FAB325C29F12DB000228144 /* DoctorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB325B29F12DB000228144 /* DoctorSelectionView.swift */; };
-		1FAB325E29F12E0100228144 /* doctorListingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB325D29F12E0100228144 /* doctorListingCard.swift */; };
+		1FAB325E29F12E0100228144 /* DoctorListingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB325D29F12E0100228144 /* DoctorListingCard.swift */; };
 		1FD2BD3E29F6860200E0F10C /* DoctorPatientsRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2BD3D29F6860200E0F10C /* DoctorPatientsRecordView.swift */; };
-		330F177729F7B0B5000778A4 /* BookingConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330F177629F7B0B5000778A4 /* BookingConfirmView.swift */; };
+		330F177729F7B0B5000778A4 /* PaymentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330F177629F7B0B5000778A4 /* PaymentPreviewView.swift */; };
 		331980EB29F0510C00988111 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 331980EA29F0510C00988111 /* SF-Pro-Display-Semibold.otf */; };
 		3343E9B329ECFD3800AC73D1 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3343E9B229ECFD3800AC73D1 /* Supabase */; };
 		3343E9B529ED621200AC73D1 /* PatientDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */; };
@@ -47,6 +47,7 @@
 		ABB2002F29F24A8A00331D5C /* PatientPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2002E29F24A8A00331D5C /* PatientPaymentView.swift */; };
 		ABB2003129F6662600331D5C /* PatientVitalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2003029F6662600331D5C /* PatientVitalsView.swift */; };
 		ABB2003329F6A55100331D5C /* BloodOxygenChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2003229F6A55100331D5C /* BloodOxygenChartView.swift */; };
+		ABD6811B29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6811A29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,9 +55,9 @@
 		1C641B8229F13996001C67C2 /* PatientPrescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientPrescriptionView.swift; sourceTree = "<group>"; };
 		1F9AC36429F1A2D500C20257 /* PatientProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientProfileView.swift; sourceTree = "<group>"; };
 		1FAB325B29F12DB000228144 /* DoctorSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSelectionView.swift; sourceTree = "<group>"; };
-		1FAB325D29F12E0100228144 /* doctorListingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doctorListingCard.swift; sourceTree = "<group>"; };
+		1FAB325D29F12E0100228144 /* DoctorListingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListingCard.swift; sourceTree = "<group>"; };
 		1FD2BD3D29F6860200E0F10C /* DoctorPatientsRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorPatientsRecordView.swift; sourceTree = "<group>"; };
-		330F177629F7B0B5000778A4 /* BookingConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingConfirmView.swift; sourceTree = "<group>"; };
+		330F177629F7B0B5000778A4 /* PaymentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPreviewView.swift; sourceTree = "<group>"; };
 		331980EA29F0510C00988111 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDashboardView.swift; sourceTree = "<group>"; };
 		3343E9B629EDB12600AC73D1 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		ABB2002E29F24A8A00331D5C /* PatientPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientPaymentView.swift; sourceTree = "<group>"; };
 		ABB2003029F6662600331D5C /* PatientVitalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientVitalsView.swift; sourceTree = "<group>"; };
 		ABB2003229F6A55100331D5C /* BloodOxygenChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodOxygenChartView.swift; sourceTree = "<group>"; };
+		ABD6811A29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmedCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		AB8139FE29EB0E2400997731 /* CareTrack */ = {
 			isa = PBXGroup;
 			children = (
+				ABD6811729F7DA6F000B8DC0 /* Extra Views */,
 				9E16397629F13C5900F3D25B /* Model */,
 				AB813A2029EB1E5200997731 /* Info.plist */,
 				33BC9A3729EBFE2A00BF688C /* ViewModel */,
@@ -169,24 +172,9 @@
 		AB813A1A29EB16F500997731 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AB813A1C29EB1A0F00997731 /* OnBoardingView.swift */,
-				ABB2003229F6A55100331D5C /* BloodOxygenChartView.swift */,
-				33BC9A3529EBEB3500BF688C /* SignUpView.swift */,
-				AB61895829EC5606005BE5C6 /* LogInView.swift */,
-				3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */,
-				AB5B1E8829F7CCE000763FC6 /* HeartRateChartView.swift */,
-				33C08EDE29EFD9FB0060CA4F /* DepartmentSelectionView.swift */,
-				1FAB325B29F12DB000228144 /* DoctorSelectionView.swift */,
-				1C641B8029F138D6001C67C2 /* PaitentRecordView.swift */,
-				1FAB325D29F12E0100228144 /* doctorListingCard.swift */,
-				1FD2BD3D29F6860200E0F10C /* DoctorPatientsRecordView.swift */,
-				1F9AC36429F1A2D500C20257 /* PatientProfileView.swift */,
-				ABB2003029F6662600331D5C /* PatientVitalsView.swift */,
-				1C641B8229F13996001C67C2 /* PatientPrescriptionView.swift */,
-				ABB2002E29F24A8A00331D5C /* PatientPaymentView.swift */,
-				48E332E729F16127001078AA /* SlotBookView.swift */,
-				330F177629F7B0B5000778A4 /* BookingConfirmView.swift */,
-				AB5B1E8629F7CCA900763FC6 /* VitalCardView.swift */,
+				ABD6811029F7D747000B8DC0 /* Welcome */,
+				ABD6811129F7D77C000B8DC0 /* Patients */,
+				ABD6811529F7D9A1000B8DC0 /* Doctors */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,6 +189,77 @@
 				331980EA29F0510C00988111 /* SF-Pro-Display-Semibold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		ABD6811029F7D747000B8DC0 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				AB813A1C29EB1A0F00997731 /* OnBoardingView.swift */,
+				33BC9A3529EBEB3500BF688C /* SignUpView.swift */,
+				AB61895829EC5606005BE5C6 /* LogInView.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		ABD6811129F7D77C000B8DC0 /* Patients */ = {
+			isa = PBXGroup;
+			children = (
+				3343E9B429ED621200AC73D1 /* PatientDashboardView.swift */,
+				ABD6811429F7D93F000B8DC0 /* Patient Record View */,
+				ABD6811329F7D819000B8DC0 /* Patient Book Appointment */,
+				ABD6811229F7D7A0000B8DC0 /* Vital View */,
+				1F9AC36429F1A2D500C20257 /* PatientProfileView.swift */,
+			);
+			path = Patients;
+			sourceTree = "<group>";
+		};
+		ABD6811229F7D7A0000B8DC0 /* Vital View */ = {
+			isa = PBXGroup;
+			children = (
+				ABB2003029F6662600331D5C /* PatientVitalsView.swift */,
+				ABB2003229F6A55100331D5C /* BloodOxygenChartView.swift */,
+				AB5B1E8829F7CCE000763FC6 /* HeartRateChartView.swift */,
+				AB5B1E8629F7CCA900763FC6 /* VitalCardView.swift */,
+			);
+			path = "Vital View";
+			sourceTree = "<group>";
+		};
+		ABD6811329F7D819000B8DC0 /* Patient Book Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				33C08EDE29EFD9FB0060CA4F /* DepartmentSelectionView.swift */,
+				1FAB325B29F12DB000228144 /* DoctorSelectionView.swift */,
+				1FAB325D29F12E0100228144 /* DoctorListingCard.swift */,
+				48E332E729F16127001078AA /* SlotBookView.swift */,
+				330F177629F7B0B5000778A4 /* PaymentPreviewView.swift */,
+				ABD6811A29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift */,
+			);
+			path = "Patient Book Appointment";
+			sourceTree = "<group>";
+		};
+		ABD6811429F7D93F000B8DC0 /* Patient Record View */ = {
+			isa = PBXGroup;
+			children = (
+				1C641B8029F138D6001C67C2 /* PaitentRecordView.swift */,
+				1C641B8229F13996001C67C2 /* PatientPrescriptionView.swift */,
+			);
+			path = "Patient Record View";
+			sourceTree = "<group>";
+		};
+		ABD6811529F7D9A1000B8DC0 /* Doctors */ = {
+			isa = PBXGroup;
+			children = (
+				1FD2BD3D29F6860200E0F10C /* DoctorPatientsRecordView.swift */,
+			);
+			path = Doctors;
+			sourceTree = "<group>";
+		};
+		ABD6811729F7DA6F000B8DC0 /* Extra Views */ = {
+			isa = PBXGroup;
+			children = (
+				ABB2002E29F24A8A00331D5C /* PatientPaymentView.swift */,
+			);
+			path = "Extra Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,13 +351,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				33BC9A3629EBEB3500BF688C /* SignUpView.swift in Sources */,
-				330F177729F7B0B5000778A4 /* BookingConfirmView.swift in Sources */,
+				330F177729F7B0B5000778A4 /* PaymentPreviewView.swift in Sources */,
 				33C08EDF29EFD9FB0060CA4F /* DepartmentSelectionView.swift in Sources */,
 				9E16397829F13C6800F3D25B /* Doctor.swift in Sources */,
 				AB61895929EC5606005BE5C6 /* LogInView.swift in Sources */,
 				1F9AC36529F1A2D500C20257 /* PatientProfileView.swift in Sources */,
 				AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */,
 				AB5B1E8929F7CCE000763FC6 /* HeartRateChartView.swift in Sources */,
+				ABD6811B29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift in Sources */,
 				AB5B1E8729F7CCA900763FC6 /* VitalCardView.swift in Sources */,
 				48E332E829F16127001078AA /* SlotBookView.swift in Sources */,
 				1FAB325C29F12DB000228144 /* DoctorSelectionView.swift in Sources */,
@@ -306,7 +366,7 @@
 				1C641B8329F13996001C67C2 /* PatientPrescriptionView.swift in Sources */,
 				33BC9A3929EBFE5400BF688C /* SignUpViewModel.swift in Sources */,
 				AB813A0229EB0E2400997731 /* ContentView.swift in Sources */,
-				1FAB325E29F12E0100228144 /* doctorListingCard.swift in Sources */,
+				1FAB325E29F12E0100228144 /* DoctorListingCard.swift in Sources */,
 				3343E9B529ED621200AC73D1 /* PatientDashboardView.swift in Sources */,
 				ABB2003129F6662600331D5C /* PatientVitalsView.swift in Sources */,
 				9EFFA71429F147B6005EBC94 /* Appointment.swift in Sources */,

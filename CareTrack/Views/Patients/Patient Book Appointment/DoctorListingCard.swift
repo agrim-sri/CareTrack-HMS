@@ -9,7 +9,7 @@ import SwiftUI
 
 
 
-struct doctorListingCard: View {
+struct DoctorListingCard: View {
     @State var customBlue:Color = Color(red: 0, green: 125/255, blue: 254/255)
     var docName: String = ""
     var department: String = ""
@@ -64,6 +64,6 @@ struct doctorListingCard: View {
 
 struct doctorListingCard_Previews: PreviewProvider {
     static var previews: some View {
-        doctorListingCard()
+        DoctorListingCard()
     }
 }
