@@ -31,6 +31,7 @@ struct PaymentConfirmedCardView: View {
                             .aspectRatio(contentMode: .fit)
                             .padding(.bottom)
                             .padding(.top)
+                            .padding(.top)
                             
                         
                         Text("Payment Success")
@@ -50,7 +51,7 @@ struct PaymentConfirmedCardView: View {
                         Button {
                             
                         } label: {
-                            RoundedRectangle(cornerRadius: 15.0)
+                            RoundedRectangle(cornerRadius: 25.0)
                                 .frame(width: 120, height: 50)
                                 .overlay{
                                     Text("Continue")
@@ -60,6 +61,7 @@ struct PaymentConfirmedCardView: View {
                             
                                 
                         }.padding(.bottom)
+                            .padding(.bottom)
 
                         
                         

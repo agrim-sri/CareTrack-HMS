@@ -114,9 +114,9 @@ struct PaymentPreviewView: View {
                         }.padding(.leading)
                         
                         Spacer()
-                        Button{
-                            
-                        }label: {
+                        NavigationLink {
+                            PaymentConfirmedCardView()
+                        } label: {
                             Text("Pay Now")
                                 .padding()
                                 .foregroundColor(.white)
