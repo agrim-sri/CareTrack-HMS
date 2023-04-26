@@ -14,12 +14,13 @@ struct PatientVitalsView: View {
         GridItem(.flexible())
     ]
     
+    @ObservedObject var HealthKitVM = HealthKitViewModel()
+    
     var smallBox: [[String : String]] =
     [
         ["Image": "HeightWeight", "HeightLabel": "Height","Height": "185", "centi": "cm", "WeightLabel": "Weight","Weight": "65", "kilos":"kg"],
-        ["SleepImages": "SleepImage", "SleepLabel": "Sleep", "hours": "8.5", "hr":"hrs", "StepImages": "StepImage", "StepLabel": "Steps","num":"92", "step":"steps"]
+        ["SleepImages": "SleepImage", "SleepLabel": "Sleep", "hours": "8.5", "hr":"hrs", "StepImages": "StepImage", "StepLabel": "Steps","num": "92", "step":"steps"]
     ]
-    
     
     
     var body: some View {
@@ -42,10 +43,10 @@ struct PatientVitalsView: View {
                                             VitalCardsView(image1: smallBox[i]["Image"]!,
                                                            image2: smallBox[i]["Image"]!,
                                                            heightLabel: smallBox[i]["HeightLabel"]!,
-                                                           height: smallBox[i]["Height"]!,
+                                                           height: HealthKitVM.height,
                                                            unit1: smallBox[i]["centi"]!,
                                                            weightLabel: smallBox[i]["WeightLabel"]!,
-                                                           weight: smallBox[i]["Weight"]!,
+                                                           weight: HealthKitVM.weight,
                                                            unit2: smallBox[i]["kilos"]!
                                             )
                                         }
@@ -55,10 +56,10 @@ struct PatientVitalsView: View {
                                             VitalCardsView(image1: smallBox[i]["SleepImages"]!,
                                                            image2: smallBox[i]["StepImages"]!,
                                                            heightLabel: smallBox[i]["SleepLabel"]!,
-                                                           height: smallBox[i]["hours"]!,
+                                                           height: String(HealthKitVM.sleepAmount),
                                                            unit1: smallBox[i]["hr"]!,
                                                            weightLabel: smallBox[i]["StepLabel"]!,
-                                                           weight: smallBox[i]["num"]!,
+                                                           weight: String(HealthKitVM.userStepCount),
                                                            unit2: smallBox[i]["step"]!
                                             )
                                         }
@@ -120,6 +121,8 @@ struct PatientVitalsView: View {
                                 
                                 
                             }
+                            
+                            
                         }
                     
                     RoundedRectangle(cornerRadius: 30)
@@ -164,7 +167,9 @@ struct PatientVitalsView: View {
                 
             }
         }.navigationTitle("Body Vitals")
-        
+            .task{
+                HealthKitVM.healthRequest()
+            }
     }
     
     
