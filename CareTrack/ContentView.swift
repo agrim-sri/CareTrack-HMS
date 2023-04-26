@@ -25,7 +25,7 @@ struct ContentView: View {
                     Image(systemName: "plus.circle")
                     Text("Book")
                 }
-            PatientDashboardView()
+            PatientVitalsView()
                 .tabItem {
                     Image(systemName: "staroflife")
                     Text("Vital")
