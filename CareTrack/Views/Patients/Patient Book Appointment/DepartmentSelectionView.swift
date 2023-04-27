@@ -15,6 +15,7 @@ extension UIScreen{
 
 struct DepartmentSelectionView: View {
     
+    
     let dict: [String : String] = ["Surgery" : "Surgery",
                                    "Neurology" : "Neurology",
                                    "General" : "General",

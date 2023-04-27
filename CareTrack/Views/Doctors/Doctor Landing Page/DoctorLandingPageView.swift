@@ -17,7 +17,7 @@ extension Animation {
 
 class Booking : ObservableObject{
     @Published var index : Int = 0
-    @Published var date : Date = Date()
+    @Published var isDoctor : Int = 0
     
 }
 
@@ -34,19 +34,35 @@ struct DoctorLandingPage : View {
             // profile page
             ProfileDoctor()
             
+            Text("Upcoming Appointments")
+                .frame(maxWidth : .infinity, alignment: .leading)
+                .padding(.horizontal)
+            
+            
             
             // Creating a scroll bar for days to choose from
             makeDates()
             
-            // Left
-            // Add frame to divider
-            Divider()
-                .overlay(.black)
+            VStack{
+                Divider()
+                    .opacity(0)
+                HStack {
+                    Picker(selection: $indexDate.isDoctor, label: Text("Left Column")) {
+                        Text("Upcoming")
+                            .tag(0)
+                        Text("Completed")
+                            .tag(1)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                }
+            }
+            .padding(.horizontal)
+        
             
             // Create Appointments
             DoctorPageAppointments()
             
-        }.background().background(Color(#colorLiteral(red: 0.9593991637, green: 0.9593990445, blue: 0.9593991637, alpha: 1)))
+        }.background(Color(#colorLiteral(red: 0.9593991637, green: 0.9593990445, blue: 0.9593991637, alpha: 1)))
     }
 }
 
@@ -56,10 +72,10 @@ struct ProfileDoctor : View {
         
         HStack {
             VStack(alignment: .leading) {
-                Text("Welcome,")
+                Text("Hello 👋,")
                     .font(.title)
-                Text("Doctor")
-                    .font(.largeTitle)
+                Text("Dr. Gaurav Ganju")
+                    .font(.title)
                     .fontWeight(.bold)
             }.padding(.horizontal)
             
@@ -91,17 +107,20 @@ struct makeDates : View{
     
     func getDay(date : Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "E dd/MM"
+        dateFormatter.dateFormat = "E"
+        return dateFormatter.string(from: date)
+    }
+    
+    func getDate(date : Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd"
         return dateFormatter.string(from: date)
     }
     
     var body : some View{
         
-        let heightScreen = bounds.size.height
-        let widthScreen = bounds.size.width
-        
         ScrollView(.horizontal, showsIndicators: false){
-            HStack(spacing : nil){
+            HStack(spacing : 16){
                 ForEach(0..<7){ index in
                     
                     let dateAssigned = dateGetter(index: index)
@@ -115,10 +134,18 @@ struct makeDates : View{
                             }
                             
                         } label:{
-                            Rectangle()
-                                .stroke()
-                                .frame(width : widthScreen * 0.25, height : heightScreen * 0.15)
-                                .overlay(Text(getDay(date: dateAssigned)))
+                            RoundedRectangle(cornerRadius: 14)
+                                .foregroundColor(.white)
+                                .frame(width : 56 , height : 65)
+                                .overlay(
+                                    VStack{
+                                        Text(getDay(date: dateAssigned))
+                                            .foregroundColor(Color(#colorLiteral(red: 0.6916636825, green: 0.7169430852, blue: 0.7440057993, alpha: 1)))
+                                            .font(.caption)
+                                        Text(getDate(date: dateAssigned))
+                                            .foregroundColor(.black)
+                                    }
+                                )
                         }
                     }
                     else{
@@ -130,18 +157,23 @@ struct makeDates : View{
                             }
                             
                         } label:{
-                            Rectangle()
+                            RoundedRectangle(cornerRadius: 14)
                                 .foregroundColor(.blue)
-                                .frame(width : widthScreen * 0.25, height : heightScreen * 0.15)
+                                .frame(width : 56 , height : 65)
                                 .overlay(
-                                    Text(getDay(date: dateAssigned))
-                                        .foregroundColor(.white)
+                                    VStack{
+                                        Text(getDay(date: dateAssigned))
+                                            .foregroundColor(Color(#colorLiteral(red: 0.6916636825, green: 0.7169430852, blue: 0.7440057993, alpha: 1)))
+                                            .font(.caption)
+                                        Text(getDate(date: dateAssigned))
+                                            .foregroundColor(.white)
+                                    }
                                 )
                         }
                     }
                 }
             }
-        }
+        }.padding(.horizontal)
     }
 }
 
@@ -150,17 +182,23 @@ struct DoctorPageAppointments : View{
     
     @ObservedObject var indexDate = booking
     
+    func getDate(date : Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E, d MMM, yyyy"
+        return dateFormatter.string(from: date)
+    }
+    
     let colorPatientName = Color(#colorLiteral(red: 0, green: 0.5794375539, blue: 0.9981201291, alpha: 1))
     let schedule : [String] = ["Name 1", "Name 2", "Name 3", "Name 4", "Name 5", "Name 6"]
     
     let timing : [[String]] = [
-        ["0", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM"],
-        ["1", "11:30 AM"],
-        ["2", "9:30 AM", "10:00 PM", "11:30 AM"],
-        ["3"],
-        ["4", "9:30 AM", "11:30 AM"],
-        ["5", "9:30 AM", "10:00 AM", "11:00 AM", "11:00 PM"],
-        ["6", "9:30", "11:00 AM", "11:30 AM"]
+        ["9:30", "10:00", "10:30", "11:00", "11:30"],
+        ["11:30"],
+        ["9:30", "10:00", "11:30"],
+        ["11:30"],
+        ["9:30", "11:30"],
+        ["9:30", "10:00", "11:00", "11:30"],
+        ["9:30", "11:00", "11:30"]
     ]
     
     let bounds = UIScreen.main.bounds
@@ -176,15 +214,25 @@ struct DoctorPageAppointments : View{
             
             ForEach(0..<numberOfSchedules, id : \.self){ index in
                 
+                let currState : Bool = (index == 0)
+                
                 HStack{
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 20)
                         .frame(width: widthScreen * 0.25, height : heightScreen * 0.10)
-                        .foregroundColor(.white)
+                        .foregroundColor(currState ? colorPatientName : Color.white)
                         .overlay(
-                            Text(timing[indexDate.index][index]),
+                            VStack{
+                                
+                                Text(timing[indexDate.index][index])
+                                    .foregroundColor(currState ? Color.white : Color.black)
+                                
+                                Text("AM")
+                                    .foregroundColor(currState ? Color.white : Color.black)
+                                
+                            }
+                            ,
                             alignment: .center
                         )
-                        .opacity(0.5)
                     
                     Button {
                         
@@ -194,34 +242,42 @@ struct DoctorPageAppointments : View{
                         
                     } label: {
                         RoundedRectangle(cornerRadius: 28)
-                            .foregroundColor(colorPatientName)
+                            .foregroundColor(currState ? colorPatientName : Color.white)
                             .overlay(
-                                Text(schedule[index])
-                                    .foregroundColor(.white)
-                                    .fontWeight(.semibold)
+                                HStack{
+                                    VStack(alignment: .leading){
+                                        Text(schedule[index])
+                                            .foregroundColor(currState ? Color.white : Color.black)
+                                            .fontWeight(.semibold)
+                                            .font(.title3)
+                                        Text("Food Poisioning")
+                                            .foregroundColor(.black)
+                                            .font(.caption)
+                                            .opacity(0.5)
+                                        Text(getDate(date: Date()))
+                                            .foregroundColor(currState ? Color.white : Color.black)
+                                            .font(.subheadline)
+                                    }.padding()
+                                    
+                                    Spacer()
+                                     
+                                    Image(systemName: "greaterthan")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                        .foregroundColor(currState ? colorPatientName : Color.black)
+                                        .padding()
+                                        .padding(.horizontal)
+                                    
+                                }
                                 ,
                                 alignment: .center
                             )
                     }
 
-                }
-                
-                Divider()
-                    .overlay(.black)
+                }.padding(.vertical, 10)
                 
             }
-        }.gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
-            .onEnded { value in
-                print(value.translation)
-                switch(value.translation.width, value.translation.height) {
-                    case (...0, -30...30):
-                    indexDate.index = min(0, indexDate.index - 1)
-                    case (0..., -30...30):
-                    indexDate.index = max(6, indexDate.index + 1)
-                    default: print("no clue")
-                }
-            }
-        )
+        }.padding(.horizontal)
     }
 }
 

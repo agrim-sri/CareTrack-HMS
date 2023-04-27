@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
     // columns for grid
 let Columns:[GridItem] = [
     GridItem(.flexible(minimum: 50, maximum: 100),spacing: nil,alignment:nil),
@@ -21,6 +22,8 @@ let colours:[Color] = [.red,.blue,.cyan,.accentColor,.brown,.gray,.indigo,.orang
     
 
 struct SlotBookView: View {
+    @StateObject var SlotVM = SlotBookViewModel()
+    var docID: String = ""
     @State private var appointmentDate = Date()
     let startingDate:Date=Calendar.current.date(from: DateComponents(year: 2023)) ?? Date()
     let endingDate:Date = Date()
@@ -86,80 +89,99 @@ struct SlotBookView: View {
                             .padding(.leading)
                     }
                     Spacer()
-                        
+                    
                     
                     
                 }
-    //            ZStack{
-    //                RoundedRectangle(cornerRadius: 50)
-    //                    .stroke(.blue,lineWidth:3)
-    //
-    //                    .frame(width: screenWidth,height: 250)
-    //                    .foregroundColor(.white)
-                    LazyVGrid(columns: Columns){
-                        ForEach(0..<9){index in
-                            
-                            Button{
-                                selectedButton = index
-                            }label: {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(.blue,lineWidth: 3)
-                                    .background(selectedButton == index ? .blue : .white)
-                                    .frame(height: 50)
-                                    .overlay(
-                                        Text("\(index)-\(index+10)")
-                                            .foregroundColor(.black)
-                                    )
-                                    .font(.system(size: 20))
-                            }
-                            
-                        }.padding(.top)
-                            .padding(.trailing)
+                //            ZStack{
+                //                RoundedRectangle(cornerRadius: 50)
+                //                    .stroke(.blue,lineWidth:3)
+                //
+                //                    .frame(width: screenWidth,height: 250)
+                //                    .foregroundColor(.white)
+                LazyVGrid(columns: Columns){
+                    ForEach(0..<9){index in
                         
-                    }
+                        Button{
+                            selectedButton = index
+                        }label: {
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(.blue,lineWidth: 3)
+                                .background(selectedButton == index ? .blue : .white)
+                                .frame(height: 50)
+                                .overlay(
+                                    Text("\(index)-\(index+10)")
+                                        .foregroundColor(.black)
+                                )
+                                .font(.system(size: 20))
+                        }
+                        
+                    }.padding(.top)
+                        .padding(.trailing)
                     
-                    
+                }
+                
+                
                 //}
                 
                 HStack{
                     NavigationLink(destination: PaymentPreviewView(name: docName,dept: department)) {
-                        Text("Book Slot")
-                            .padding(.horizontal,60)
-                            .padding(.vertical,8)
-                            .foregroundColor(.white)
-                            .background(
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.blue)
-                            )
+                        //                        Text("Book Slot")
+                        //                            .padding(.horizontal,60)
+                        //                            .padding(.vertical,8)
+                        //                            .foregroundColor(.white)
+                        //                            .background(
+                        //                            RoundedRectangle(cornerRadius: 8)
+                        //                                .fill(.blue)
+                        //                            )
+                        //
+                        //                            .overlay {
+                        //                                RoundedRectangle(cornerRadius: 8)
+                        //                                    .stroke(.blue,lineWidth: 2)
+                        //                            }
+                        //                    }.padding(.top)
+                        //                        .padding(.top)
+                        //
+                        Button{
+                            SlotVM.addData(doctorId: docID, patientId: Auth.auth().currentUser!.uid, Date: appointmentDate, slots: "9-10")
+                        }label: {
+                            Text("Book Slot")
+                                .padding(.horizontal,60)
+                                .padding(.vertical,8)
+                                .foregroundColor(.white)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .fill(.blue)
+                                )
                             
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(.blue,lineWidth: 2)
-                            }
-                    }
-                    
-                    
-                }
-                .padding(.bottom,70)
-                Spacer()
-                 
-                
-                
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(.blue,lineWidth: 2)
+                                }
+                        }
                         
-                      
+                    }
+                    .padding(.bottom,70)
+                    Spacer()
+                    
+                    
+                    
+                    
+                    
                 }
                 
                 
-            .padding(.bottom,100)
+                .padding(.bottom,100)
+            }
         }
-        }
-       
+        
     }
-
-
-
-struct SlotBookingView_Previews: PreviewProvider {
-    static var previews: some View {
-        SlotBookView()
+    
+    
+    
+    struct SlotBookingView_Previews: PreviewProvider {
+        static var previews: some View {
+            SlotBookView()
+        }
     }
 }

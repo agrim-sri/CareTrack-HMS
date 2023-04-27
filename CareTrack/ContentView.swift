@@ -32,7 +32,7 @@ struct ContentView: View {
                 }
             PatientProfileView()
                 .tabItem {
-                    Image(systemName: "gearshape")
+                    Image(systemName: "person")
                     Text("Profile")
                 }
         }
