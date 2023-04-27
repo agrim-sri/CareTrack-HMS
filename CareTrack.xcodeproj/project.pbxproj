@@ -54,6 +54,7 @@
 		ABB2003329F6A55100331D5C /* BloodOxygenChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2003229F6A55100331D5C /* BloodOxygenChartView.swift */; };
 		ABD6811B29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6811A29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift */; };
 		ABD6811D29F7F243000B8DC0 /* DoctorPrescriptionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6811C29F7F243000B8DC0 /* DoctorPrescriptionForm.swift */; };
+		ABED9B8329FA8672004C65BF /* SlotBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABED9B8229FA8672004C65BF /* SlotBookViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		ABB2003229F6A55100331D5C /* BloodOxygenChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodOxygenChartView.swift; sourceTree = "<group>"; };
 		ABD6811A29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmedCardView.swift; sourceTree = "<group>"; };
 		ABD6811C29F7F243000B8DC0 /* DoctorPrescriptionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorPrescriptionForm.swift; sourceTree = "<group>"; };
+		ABED9B8229FA8672004C65BF /* SlotBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotBookViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				AB61895629EC55E6005BE5C6 /* LogInViewModel.swift */,
 				9EC1BC3829F690F000975656 /* DoctorSelectionViewModel.swift */,
 				AB9D5D4129F8E0B600F5BFA1 /* HealthKitViewModel.swift */,
+				ABED9B8229FA8672004C65BF /* SlotBookViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				1FAB325E29F12E0100228144 /* DoctorListingCard.swift in Sources */,
 				3343E9B529ED621200AC73D1 /* PatientDashboardView.swift in Sources */,
 				ABB2003129F6662600331D5C /* PatientVitalsView.swift in Sources */,
+				ABED9B8329FA8672004C65BF /* SlotBookViewModel.swift in Sources */,
 				9EFFA71429F147B6005EBC94 /* Appointment.swift in Sources */,
 				9EC1BC3929F690F000975656 /* DoctorSelectionViewModel.swift in Sources */,
 				1C641B8129F138D6001C67C2 /* PaitentRecordView.swift in Sources */,
