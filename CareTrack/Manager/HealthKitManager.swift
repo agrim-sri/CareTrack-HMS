@@ -9,6 +9,14 @@ import SwiftUI
 import HealthKit
 
 extension Date {
+
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+    }
+
+}
+
+extension Date {
     static var yesterday: Date { return Date().dayBefore }
     static var tomorrow:  Date { return Date().dayAfter }
     var dayBefore: Date {
@@ -80,7 +88,7 @@ class HealthKitManager {
             }
         }
     }
-
+    
     
     
     func readStepCount(forToday: Date, healthStore: HKHealthStore, completion: @escaping (Double) -> Void) {
@@ -98,7 +106,7 @@ class HealthKitManager {
             }
             
             completion(sum.doubleValue(for: HKUnit.count()))
-        
+            
         }
         
         healthStore.execute(query)
@@ -106,59 +114,100 @@ class HealthKitManager {
     }
     
     func readSleepAmount(forDate date: Date,healthStore: HKHealthStore, completion: @escaping (Double) -> Void) {
-        print(":j")
-        guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else { return }
-        let predicate = HKQuery.predicateForSamples(withStart: date.dayBefore, end: Date(), options: .strictEndDate)
-        let query = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { [self] query, results, error in
-            if let sleepSamples = results as? [HKCategorySample] {
-                let totalDuration = sleepSamples.reduce(0.0) { $0 + $1.endDate.timeIntervalSince($1.startDate) }
-                let minutes = totalDuration / 60.0
-                    self.sleepAmount = minutes / 60.0
-                    print(self.sleepAmount)
-                completion(self.sleepAmount)
-                
-            } else {
-                DispatchQueue.main.async {
-                    self.sleepAmount = 0
+//        guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else { return }
+//        let predicate = HKQuery.predicateForSamples(withStart: date.dayBefore, end: Date(), options: .strictEndDate)
+//        let query = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { [self] query, results, error in
+//            if let sleepSamples = results as? [HKCategorySample] {
+//                let totalDuration = sleepSamples.reduce(0.0) { $0 + $1.endDate.timeIntervalSince($1.startDate) }
+//                let minutes = totalDuration / 60.0
+//                self.sleepAmount = minutes / 60.0
+//                print(self.sleepAmount)
+//                completion(self.sleepAmount)
+//
+//            } else {
+//                DispatchQueue.main.async {
+//                    self.sleepAmount = 0
+//                }
+//            }
+//        }
+//        healthStore.execute(query)
+        
+        
+        if let sleepType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) {
+
+                // Use a sortDescriptor to get the recent data first
+                let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+
+                // we create our query with a block completion to execute
+                let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 30, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+
+                    if error != nil {
+
+                        // something happened
+                        return
+
+                    }
+
+                    if let result = tmpResult {
+
+                        // do something with my data
+                        var sTime: Double = 0
+                        for item in result {
+                            if let sample = item as? HKCategorySample {
+                                let value = (sample.value == HKCategoryValueSleepAnalysis.inBed.rawValue) ? "InBed" : "Asleep"
+                                if value == "Asleep"{
+                                    print("Healthkit sleep: \(sample.startDate.formatted(date: .abbreviated, time: .standard)) \(sample.endDate.formatted(date: .abbreviated, time: .standard)) - value: \(value)")
+                                    sTime += sample.endDate - sample.startDate
+
+
+                                }
+                                print("e = \(sTime)")
+                            }
+                        }
+                        completion(sTime / 3600)
+                    }
+                    
                 }
+
+                // finally, we execute our quer/
+            healthStore.execute(query)
             }
+        
+        
+
+        
+    }
+    
+    func getHeight(healthStore: HKHealthStore, complection: @escaping (Double) -> Void) {
+        guard let heightType = HKObjectType.quantityType(forIdentifier: .height) else {
+            print("Height data type is no longer available in HealthKit")
+            return
+        }
+        
+        let query = HKStatisticsQuery(quantityType: heightType, quantitySamplePredicate: nil, options: .mostRecent) { (query, result, error) in
+            guard let result = result, let height = result.mostRecentQuantity()?.doubleValue(for: HKUnit.meter()) else {
+                print("Could not retrieve height from HealthKit")
+                return
+            }
+            complection(height)
         }
         healthStore.execute(query)
     }
     
-    func getHeight(healthStore: HKHealthStore, complection: @escaping (Double) -> Void) {
-            guard let heightType = HKObjectType.quantityType(forIdentifier: .height) else {
-                print("Height data type is no longer available in HealthKit")
-                return
-            }
-            
-            let query = HKStatisticsQuery(quantityType: heightType, quantitySamplePredicate: nil, options: .mostRecent) { (query, result, error) in
-                guard let result = result, let height = result.mostRecentQuantity()?.doubleValue(for: HKUnit.meter()) else {
-                    print("Could not retrieve height from HealthKit")
-                    return
-                }
-                complection(height)
-            }
-            healthStore.execute(query)
-        }
-    
     func getWeight(healthStore: HKHealthStore, complection: @escaping (Double) -> Void) {
-            guard let weightType = HKObjectType.quantityType(forIdentifier: .bodyMass) else {
-                print("Weight data type is no longer available in HealthKit")
+        guard let weightType = HKObjectType.quantityType(forIdentifier: .bodyMass) else {
+            print("Weight data type is no longer available in HealthKit")
+            return
+        }
+        
+        let query = HKStatisticsQuery(quantityType: weightType, quantitySamplePredicate: nil, options: .mostRecent) { (query, result, error) in
+            guard let result = result, let weight = result.mostRecentQuantity()?.doubleValue(for: HKUnit.gram()) else {
+                print("Could not retrieve height from HealthKit")
                 return
             }
-            
-            let query = HKStatisticsQuery(quantityType: weightType, quantitySamplePredicate: nil, options: .mostRecent) { (query, result, error) in
-                guard let result = result, let weight = result.mostRecentQuantity()?.doubleValue(for: HKUnit.gram()) else {
-                    print("Could not retrieve height from HealthKit")
-                    return
-                }
-                complection(weight)
-            }
-            healthStore.execute(query)
+            complection(weight)
         }
+        healthStore.execute(query)
+    }
     
-    
-    
-
 }
