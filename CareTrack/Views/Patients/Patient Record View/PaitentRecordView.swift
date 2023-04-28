@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PaitentRecordView: View {
     let datesarray: [String] = ["11/02/2023","20/11/2022","30/11/2022"]
-    let docname:[String] = ["Dr. Aryan","Dr. Mim","Dr. Khanna"]
+    let docname:[String] = ["Dr. Aryan Thakur","Dr. Mim Desai","Dr. Aryan Khanna"]
     let symname: [String] = ["Food Poisoning","Cough","Headache"]
     var body: some View {
         NavigationView {
@@ -40,6 +40,7 @@ struct PaitentRecordView: View {
                                         .padding(.leading)
                                     Spacer()
                                     Image(systemName: "chevron.right")
+                                        .font(Font.custom("SF Pro Display Semibold", size: 24))
                                         .foregroundColor(.blue)
                                         .padding()
                                         .padding(.trailing)
@@ -53,9 +54,6 @@ struct PaitentRecordView: View {
                                         .background{
                                             Color.white
                                         }.cornerRadius(20)
-
-                                    
-                                        
                                 }
                                 .padding(.top)
                             }

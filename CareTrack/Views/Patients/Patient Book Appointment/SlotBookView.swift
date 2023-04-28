@@ -125,25 +125,25 @@ struct SlotBookView: View {
                 //}
                 
                 HStack{
-                    NavigationLink(destination: PaymentPreviewView(name: docName,dept: department)) {
-                        //                        Text("Book Slot")
-                        //                            .padding(.horizontal,60)
-                        //                            .padding(.vertical,8)
-                        //                            .foregroundColor(.white)
-                        //                            .background(
-                        //                            RoundedRectangle(cornerRadius: 8)
-                        //                                .fill(.blue)
-                        //                            )
-                        //
-                        //                            .overlay {
-                        //                                RoundedRectangle(cornerRadius: 8)
-                        //                                    .stroke(.blue,lineWidth: 2)
-                        //                            }
-                        //                    }.padding(.top)
-                        //                        .padding(.top)
-                        //
+//                    NavigationLink(destination: PaymentPreviewView(name: docName,dept: department)) {
+//                        //                        Text("Book Slot")
+//                        //                            .padding(.horizontal,60)
+//                        //                            .padding(.vertical,8)
+//                        //                            .foregroundColor(.white)
+//                        //                            .background(
+//                        //                            RoundedRectangle(cornerRadius: 8)
+//                        //                                .fill(.blue)
+//                        //                            )
+//                        //
+//                        //                            .overlay {
+//                        //                                RoundedRectangle(cornerRadius: 8)
+//                        //                                    .stroke(.blue,lineWidth: 2)
+//                        //                            }
+//                        //                    }.padding(.top)
+//                        //                        .padding(.top)
+//                        //
                         Button{
-                            SlotVM.addData(doctorId: docID, patientId: Auth.auth().currentUser!.uid, Date: appointmentDate, slots: "9-10")
+                            SlotVM.addData(doctorId: docID, patientId: Auth.auth().currentUser!.uid, Date: appointmentDate, slots: "0-10")
                         }label: {
                             Text("Book Slot")
                                 .padding(.horizontal,60)
@@ -162,13 +162,13 @@ struct SlotBookView: View {
                         
                     }
                     .padding(.bottom,70)
-                    Spacer()
+                    .padding(.top)
                     
                     
                     
                     
                     
-                }
+                
                 
                 
                 .padding(.bottom,100)

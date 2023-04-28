@@ -20,7 +20,10 @@ struct DepartmentSelectionView: View {
                                    "Neurology" : "Neurology",
                                    "General" : "General",
                                    "Sonography" : "Sonography",
-                                   "Vaccination" : "Vaccination"
+                                   "Vaccination" : "Vaccination",
+                                   "Physiotherapy" : "Physiotherapy",
+                                   "Senior HealthCare" : "Senior HealthCare",
+                                   "Radiology" : "Radiology"
     ]
     
     let columns = [
