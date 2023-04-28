@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct PatientProfileView: View {
+    @AppStorage("signIn") var isSignIn: Bool = false
     @State var bgColour: Color = Color(red: 242/255, green: 242/255, blue: 242/255)
     @State var listLabels = ["Label","Security","Notifications","Permissions","Help and Support"]
     @State var listIcons = ["volume.2.fill","lock","bell.badge","key","headphones"]
@@ -125,7 +127,7 @@ struct PatientProfileView: View {
                     )
 
                             Button() {
-                                
+                                signOut()
                             }
                         label: {
                             
@@ -153,6 +155,16 @@ struct PatientProfileView: View {
                 }
                 
             }
+        }
+    }
+    
+    func signOut(){
+        do{
+            try Auth.auth().signOut()
+            isSignIn.toggle()
+        }
+        catch{
+            print("Err")
         }
     }
 }
