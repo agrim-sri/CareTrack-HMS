@@ -25,7 +25,7 @@ struct DoctorSelectionView: View {
                 .ignoresSafeArea()
             ScrollView(showsIndicators: false){
                 ForEach(model.list){ d in
-                    NavigationLink(destination: SlotBookView(docID: model.list.first!.id,docName: d.name,department: d.department,experience: d.yearsOfExperience)) {
+                    NavigationLink(destination: SlotBookView(docID: model.list.first!.id,docName: d.name,department: d.department,experience: d.Experience)) {
                         
                         VStack{
                             ZStack{
@@ -43,7 +43,7 @@ struct DoctorSelectionView: View {
                                         Text(d.department)
                                             .font(Font.custom("SF Pro Display", size: 16))
                                             .foregroundColor(.secondary)
-                                        Text("Experience : \(d.yearsOfExperience) years")
+                                        Text("Experience : \(d.Experience) years")
                                             .font(Font.custom("SF Pro Display", size: 16))
                                             .foregroundColor(.black)
                                         

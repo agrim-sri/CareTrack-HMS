@@ -19,15 +19,17 @@ struct DoctorScheduleView: View {
     ]
     
     let dict = ["Prakhar Parakh":"Sick"]
+    @StateObject var DoctorLandingViewModel = DoctorLandingPageViewModel()
+    @State var Date: String = ""
     
     var body: some View {
         ZStack{
             bgColor.ignoresSafeArea()
             ScrollView {
                 LazyVGrid(columns: columns){
-                    ForEach(0..<timeArray.count, id : \.self){ index in
+                    ForEach(0..<DoctorLandingViewModel.appoitementDetails.count, id: \.self){ index in
                         
-                        Text(timeArray[index])
+                        Text("\(DoctorLandingViewModel.appoitementDetails[index].time)" as String)
                             .padding()
                             .font(Font.custom("SF Pro Display Regular", size: 18))
                             .foregroundColor(headingColor)
@@ -38,35 +40,41 @@ struct DoctorScheduleView: View {
                             }
                             .padding()
                         
-                        HStack{
-                            VStack(alignment: .leading,spacing: 5){
-                                Text("Prakhar Parakh")
-                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                    .font(Font.custom("SF Pro Display Semibold", size: 16))
-                                    .foregroundColor(headingColor)
-                                Text("Sick")
-                                    .font(Font.custom("SF Pro Display Medium", size: 12))
-                                    .foregroundColor(symptomsColor)
-                                Text("Thu, 26 Apr, 2023")
-                                  .font(Font.custom("SF Pro Display Medium", size: 12))
-                                    .foregroundColor(headingColor)
-                            }.padding()
+                        NavigationLink(destination: DoctorPrescriptionForm()) {
+                            HStack{
+                                VStack(alignment: .leading,spacing: 5){
+                                    Text("\(DoctorLandingViewModel.appoitementDetails[index].patientName)" as String)
+                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                        .font(Font.custom("SF Pro Display Semibold", size: 16))
+                                        .foregroundColor(headingColor)
+                                    Text("Sick")
+                                        .font(Font.custom("SF Pro Display Medium", size: 12))
+                                        .foregroundColor(symptomsColor)
+                                    Text("\(DoctorLandingViewModel.appoitementDetails[index].date.dateValue().formatted(date: .long, time: .shortened))")
+                                      .font(Font.custom("SF Pro Display Medium", size: 12))
+                                        .foregroundColor(headingColor)
+                                }.padding()
+                                
+                                Image(systemName: "chevron.right")
+                                    .padding(.trailing)
+                                    .font(Font.custom("SF Pro Display Semibold", size: 24))
+                                    .foregroundColor(.blue)
+                            }
                             
-                            Image(systemName: "chevron.right")
-                                .padding(.trailing)
-                                .font(Font.custom("SF Pro Display Semibold", size: 24))
-                                .foregroundColor(.blue)
+                            .background{
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundColor(.white)
+                            }
+                            .padding()
                         }
                         
-                        .background{
-                            RoundedRectangle(cornerRadius: 15)
-                                .foregroundColor(.white)
-                        }
-                        .padding()
                         
                     }
                 }
             }
+        }
+        .task {
+            await DoctorLandingViewModel.getAppoitementDeatils()
         }
         
     }

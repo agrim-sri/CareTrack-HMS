@@ -13,15 +13,20 @@ struct CareTrackApp: App {
     init (){
         FirebaseApp.configure()
     }
-    @AppStorage("signIn") var isSignIn: Bool = false
+    @AppStorage("usersignIn") var userIsSignIn: Bool = false
+    @AppStorage("doctorsignIn") var doctorIsSignIn: Bool = false
 
     var body: some Scene {
         WindowGroup {
-            if !isSignIn{
-                OnBoardingView()
+            if doctorIsSignIn{
+                DoctorLandingPageView()
+            }
+            else if !userIsSignIn{
+                ContentView()
             }
             else{
-                ContentView()
+                OnBoardingView()
+
             }
             
         }

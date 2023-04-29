@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct PatientProfileView: View {
-    @AppStorage("signIn") var isSignIn: Bool = false
+    @AppStorage("usersignIn") var userIsSignIn: Bool = false
     @State var bgColour: Color = Color(red: 242/255, green: 242/255, blue: 242/255)
     @State var listLabels = ["Label","Security","Notifications","Permissions","Help and Support"]
     @State var listIcons = ["volume.2.fill","lock","bell.badge","key","headphones"]
@@ -45,7 +45,10 @@ struct PatientProfileView: View {
                         }
                         .padding()
                         Image("Profile Image")
+                            .resizable()
+                            .frame(width: 100, height: 100)
                             .padding(.trailing)
+                            
                         Spacer()
                         
                     }
@@ -161,7 +164,7 @@ struct PatientProfileView: View {
     func signOut(){
         do{
             try Auth.auth().signOut()
-            isSignIn.toggle()
+            userIsSignIn.toggle()
         }
         catch{
             print("Err")

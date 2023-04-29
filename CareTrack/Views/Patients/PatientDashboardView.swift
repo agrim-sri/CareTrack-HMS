@@ -18,23 +18,28 @@ struct PatientDashboardView: View {
                 VStack{
                     HStack{
                         VStack(alignment:.leading,spacing:15){
-                            Text("Hello 👋")
-                                .font(Font.custom("SF Pro Display", size: 20))
+                            Text("Hello 👋🏻")
+                                .font(Font.custom("SF Pro Display", size: 25))
+                                .padding(.top)
                                 
+                            
                             Text("Gaurav Ganju")
-                                .font(Font.custom("SF Pro Display Heavy", size: 32))
+                                .font(Font.custom("SF Pro Display Heavy", size: 30))
                                 .foregroundColor(Color(red: 0.2901960784313726, green: 0.2901960784313726, blue: 0.2901960784313726))
                                 
                             
                         }.padding(.leading)
                         Spacer()
                         Image("Profile Image")
+                            .resizable()
+                            .frame(width: 150, height: 150)
                             .padding(.trailing)
+                            
                     }.padding(.bottom)
                     
                     VStack{
                         Text("Upcoming Appointments")
-                            .font(Font.custom("SF Pro Display Bold", size: 16))
+                            .font(Font.custom("SF Pro Display Bold", size: 25))
                             .frame(maxWidth: .infinity,alignment: .leading)
                             .padding(.leading)
                         ScrollView(.horizontal,showsIndicators: false){
