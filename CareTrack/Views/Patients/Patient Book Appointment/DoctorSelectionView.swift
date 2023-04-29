@@ -25,7 +25,7 @@ struct DoctorSelectionView: View {
                 .ignoresSafeArea()
             ScrollView(showsIndicators: false){
                 ForEach(model.list){ d in
-                    NavigationLink(destination: SlotBookView(docID: model.list.first!.id,docName: d.name,department: d.department,experience: d.Experience)) {
+                    NavigationLink(destination: SlotBooksView()) {
                         
                         VStack{
                             ZStack{

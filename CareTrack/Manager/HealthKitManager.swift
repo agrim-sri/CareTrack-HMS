@@ -139,7 +139,7 @@ class HealthKitManager {
                 let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
 
                 // we create our query with a block completion to execute
-                let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 30, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+                let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 130, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
 
                     if error != nil {
 
@@ -155,7 +155,7 @@ class HealthKitManager {
                         for item in result {
                             if let sample = item as? HKCategorySample {
                                 let value = (sample.value == HKCategoryValueSleepAnalysis.inBed.rawValue) ? "InBed" : "Asleep"
-                                if value == "Asleep"{
+                                if value == "Asleep" && sample.startDate > Date().dayBefore{
                                     print("Healthkit sleep: \(sample.startDate.formatted(date: .abbreviated, time: .standard)) \(sample.endDate.formatted(date: .abbreviated, time: .standard)) - value: \(value)")
                                     sTime += sample.endDate - sample.startDate
 
