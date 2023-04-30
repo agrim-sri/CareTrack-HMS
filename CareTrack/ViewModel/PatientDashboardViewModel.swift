@@ -1,22 +1,21 @@
 //
-//  DoctorSelectionViewModel.swift
+//  PatientDashboardViewModel.swift
 //  CareTrack
 //
-//  Created by Agrim Srivastava on 24/04/23.
+//  Created by Sanskriti Sinha on 30/04/23.
 //
 
 import Foundation
 import Firebase
 
-class DoctorSelectionViewModel: ObservableObject {
+class PatientDashboardViewModel: ObservableObject{
+    @Published var user = [Patient]()
     
-    @Published var doctors = [Doctor]()
-    
-    func getDoctors(dept: String) {
+    func getUser(){
         let db = Firestore.firestore()
         
-        let collectionRef = db.collection("Doctor")
-        let query = collectionRef.whereField("department", isEqualTo: dept)
+        let collectionRef = db.collection("Patient")
+        let query = collectionRef.whereField("id", isEqualTo: Auth.auth().currentUser!.uid)
         
         
         query.getDocuments { snapshot, error in
@@ -29,10 +28,11 @@ class DoctorSelectionViewModel: ObservableObject {
                      // Update the list property in the main thread
                      DispatchQueue.main.async {
                          // Get all the documents and create Todos
-                         self.doctors = snapshot.documents.map { d in
+                         self.user = snapshot.documents.map { d in
                              
                              // Create a Todo item for each document returned
-                             return Doctor(id: d["id"] as? String ?? "", name: d["name"] as? String ?? "", department: d["department"] as? String ?? "", Qualification: d["Qualification "] as? String ?? "", Experience: d["Experience"] as? Int ?? 0, gender: d["Gender"] as? String ?? "", phone: d["phone"] as? Int ?? 0, Age: d["Age"] as? Int ?? 0)
+                             
+                             return Patient(id: d["id"] as? String ?? "", name: d["name"] as? String ?? "")
                              
                          }
                      }
@@ -42,12 +42,8 @@ class DoctorSelectionViewModel: ObservableObject {
                  }
              }
              else {
-                 return
+                 // Handle the error
              }
          }
-        
-        
-        
     }
-    
 }

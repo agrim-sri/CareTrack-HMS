@@ -21,7 +21,7 @@ struct CareTrackApp: App {
             if doctorIsSignIn{
                 DoctorLandingPageView()
             }
-            else if !userIsSignIn{
+            else if userIsSignIn{
                 ContentView()
             }
             else{

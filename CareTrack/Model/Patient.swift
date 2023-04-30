@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Patient{
     
-    var firebaseId : String
-    var pEmail: String
-    var pName : String
-    var age : Int
-    var pGender : String
-    var pPhoneNo : String
+    var id : String
+//    var email: String
+    var name : String
+//    var age : Int
+//    var gender : String
+//    var phone : String
 
 }

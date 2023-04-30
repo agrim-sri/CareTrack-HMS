@@ -10,6 +10,7 @@ import SwiftUI
 struct PatientDashboardView: View {
     @State var medicine: [String] = ["Dolo 650","Crocin"]
     @State var dosage: [Int] = [1,2]
+    @StateObject var patientVM = PatientDashboardViewModel()
     var body: some View {
         ZStack {
             Color(red: 0.949, green: 0.949, blue: 0.949)
@@ -22,10 +23,13 @@ struct PatientDashboardView: View {
                                 .font(Font.custom("SF Pro Display", size: 25))
                                 .padding(.top)
                                 
+                            if patientVM.user.count > 0{
+                                Text("\(patientVM.user[0].name)")
+                                    .font(Font.custom("SF Pro Display Heavy", size: 30))
+                                    .foregroundColor(Color(red: 0.2901960784313726, green: 0.2901960784313726, blue: 0.2901960784313726))
+                            }
                             
-                            Text("Gaurav Ganju")
-                                .font(Font.custom("SF Pro Display Heavy", size: 30))
-                                .foregroundColor(Color(red: 0.2901960784313726, green: 0.2901960784313726, blue: 0.2901960784313726))
+                            
                                 
                             
                         }.padding(.leading)
@@ -180,6 +184,8 @@ struct PatientDashboardView: View {
                     }.padding(.top)
                 }
             }
+        }.task {
+            patientVM.getUser()
         }
     }
 }

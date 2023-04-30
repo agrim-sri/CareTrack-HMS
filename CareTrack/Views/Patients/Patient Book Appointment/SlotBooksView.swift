@@ -11,7 +11,12 @@ struct SlotBooksView: View {
     
     @State private var appointmentDate = Date()
     @State var selectedButton: Int = -1
-    
+    var docID: String = ""
+    var docName: String = ""
+    var dept: String = ""
+    var rating: Int = 0
+    var qualification: String = ""
+    var exp: Int = 0
     var body: some View {
         
         ZStack{
@@ -23,29 +28,31 @@ struct SlotBooksView: View {
                     VStack{
                         HStack{
                             VStack(alignment: .leading){
-                                Text("Dr. Mim Akhter")
+                                Text("\(docName)")
                                     .font(Font.custom("SF Pro Display", size: 24))
-                                
                                     .bold()
                                     .padding(.top)
                                 HStack{
-                                    Text("Surgeon (4.5)")
+                                    Text("\(dept) (\(rating))")
                                         .font(Font.custom("SF Pro Display", size: 20))
                                     Image(systemName: "star.fill")
                                         .foregroundColor(Color(red: 0.877, green: 0.625, blue: 0.118))
                                 }.padding(.top, 1)
                                 
                                 
-                                Text("(MBBS Ph.D, Fellow, International College of Surgeons")
+                                Text("\(qualification)")
                                     .font(Font.custom("SF Pro Display", size: 12))
                                     .padding(.top, 0.5)
                                     .multilineTextAlignment(.leading)
+                                    .lineLimit(3)
                                 
-                                Text("15+ years of Experience")
+                                Text("\(exp)+ years of Experience")
                                     .font(Font.custom("SF Pro Display", size: 12))
                                     .padding(.top, 0.5)
                                     .padding(.bottom)
-                            }
+                            }.padding(.leading)
+                            
+                            Spacer()
                             
                             RoundedRectangle(cornerRadius: 15)
                                 .frame(width: 80, height: 80)
@@ -55,6 +62,7 @@ struct SlotBooksView: View {
                                         .frame(width: 80, height: 80)
                                         .cornerRadius(15)
                                 }
+                                .padding(.trailing)
                             
                             
                         }.padding()
@@ -79,17 +87,17 @@ struct SlotBooksView: View {
                             .padding(.leading)
                         
                         
-//                        DatePicker("Choose a date :",selection: $appointmentDate,in: range,displayedComponents: .date)
-//                            .padding()
-//                            .padding([.leading, .trailing])
-//                            .background{
-//                                RoundedRectangle(cornerRadius: 20)
-//                                    .foregroundColor(.white)
-//                                    .padding([.leading, .trailing])
-//                            }
+                        DatePicker("Choose a date :",selection: $appointmentDate,in: range,displayedComponents: .date)
+                            .padding()
+                            .padding([.leading, .trailing])
+                            .background{
+                                RoundedRectangle(cornerRadius: 20)
+                                    .foregroundColor(.white)
+                                    .padding([.leading, .trailing])
+                            }
                         
                     }
-                    //SlotBookView()
+                    SlotBookView(docID: docID,docName: docName,degree:qualification, dept:dept,experience: exp,date: appointmentDate)
                 }
             }
             
@@ -97,7 +105,7 @@ struct SlotBooksView: View {
                 
                 
                 
-            }
+        }.navigationTitle("Slot Booking")
         }
         
         struct SlotBooksView_Previews: PreviewProvider {

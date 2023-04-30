@@ -11,15 +11,16 @@ import Firebase
 
 class SlotBookViewModel: ObservableObject {
     
-    func addData(doctorId: String, patientId: String, Date: Date, payment: Bool = true, slots: String) {
+    func addData(doctorId: String, patientId: String, patientName: String,Date: Date, payment: Bool = true, slots: String) {
         
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeStyle = DateFormatter.Style.none
+        dateFormatter.dateStyle = DateFormatter.Style.full
         let dateString = dateFormatter.string(from: Date)
         let date = dateFormatter.date(from: dateString)!
         let calendar = Calendar.current
-        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        var components = calendar.dateComponents([.year, .month, .day], from: date)
         components.hour = 9
         components.minute = 30
         
@@ -41,9 +42,10 @@ class SlotBookViewModel: ObservableObject {
             
             // Add a document to a collection
             db.collection("Appointment").addDocument(data:
-                                                        ["Date": timeStamp,
+                                                        ["Date": Date.timeIntervalSince1970,
                                                          "DoctorId": doctorId,
                                                          "PatientId": patientId,
+                                                         "PatientName": patientName,
                                                          "Payment": payment,
                                                          "Slots": slots]) { error in
                 if (error != nil){

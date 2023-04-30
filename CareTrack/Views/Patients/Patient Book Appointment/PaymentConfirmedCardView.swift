@@ -63,9 +63,6 @@ struct PaymentConfirmedCardView: View {
                         }.padding(.bottom)
                             .padding(.bottom)
 
-                        
-                        
-                        
                     }
                 }
         }

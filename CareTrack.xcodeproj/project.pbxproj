@@ -52,6 +52,8 @@
 		ABB2002F29F24A8A00331D5C /* PatientPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2002E29F24A8A00331D5C /* PatientPaymentView.swift */; };
 		ABB2003129F6662600331D5C /* PatientVitalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2003029F6662600331D5C /* PatientVitalsView.swift */; };
 		ABB2003329F6A55100331D5C /* BloodOxygenChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2003229F6A55100331D5C /* BloodOxygenChartView.swift */; };
+		ABC01BFF29FEBC620042E98A /* SlotBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC01BFE29FEBC620042E98A /* SlotBookView.swift */; };
+		ABC01C0329FEDED30042E98A /* PatientDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC01C0229FEDED30042E98A /* PatientDashboardViewModel.swift */; };
 		ABD6811B29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6811A29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift */; };
 		ABD6811D29F7F243000B8DC0 /* DoctorPrescriptionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6811C29F7F243000B8DC0 /* DoctorPrescriptionForm.swift */; };
 		ABED9B8329FA8672004C65BF /* SlotBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABED9B8229FA8672004C65BF /* SlotBookViewModel.swift */; };
@@ -104,6 +106,8 @@
 		ABB2002E29F24A8A00331D5C /* PatientPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientPaymentView.swift; sourceTree = "<group>"; };
 		ABB2003029F6662600331D5C /* PatientVitalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientVitalsView.swift; sourceTree = "<group>"; };
 		ABB2003229F6A55100331D5C /* BloodOxygenChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodOxygenChartView.swift; sourceTree = "<group>"; };
+		ABC01BFE29FEBC620042E98A /* SlotBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotBookView.swift; sourceTree = "<group>"; };
+		ABC01C0229FEDED30042E98A /* PatientDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDashboardViewModel.swift; sourceTree = "<group>"; };
 		ABD6811A29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmedCardView.swift; sourceTree = "<group>"; };
 		ABD6811C29F7F243000B8DC0 /* DoctorPrescriptionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorPrescriptionForm.swift; sourceTree = "<group>"; };
 		ABED9B8229FA8672004C65BF /* SlotBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotBookViewModel.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				AB9D5D4129F8E0B600F5BFA1 /* HealthKitViewModel.swift */,
 				ABED9B8229FA8672004C65BF /* SlotBookViewModel.swift */,
 				ABED9B8A29FBE610004C65BF /* DoctorLandingPageViewModel.swift */,
+				ABC01C0229FEDED30042E98A /* PatientDashboardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				1FAB325B29F12DB000228144 /* DoctorSelectionView.swift */,
 				1FAB325D29F12E0100228144 /* DoctorListingCard.swift */,
 				48E332E729F16127001078AA /* SlotBooksView.swift */,
+				ABC01BFE29FEBC620042E98A /* SlotBookView.swift */,
 				330F177629F7B0B5000778A4 /* PaymentPreviewView.swift */,
 				ABD6811A29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift */,
 			);
@@ -441,6 +447,8 @@
 				9EC1BC3929F690F000975656 /* DoctorSelectionViewModel.swift in Sources */,
 				ABED9B8B29FBE610004C65BF /* DoctorLandingPageViewModel.swift in Sources */,
 				1C641B8129F138D6001C67C2 /* PaitentRecordView.swift in Sources */,
+				ABC01C0329FEDED30042E98A /* PatientDashboardViewModel.swift in Sources */,
+				ABC01BFF29FEBC620042E98A /* SlotBookView.swift in Sources */,
 				ABED9B8529FB8ED9004C65BF /* DoctorScheduleView.swift in Sources */,
 				ABB2002F29F24A8A00331D5C /* PatientPaymentView.swift in Sources */,
 				AB61895729EC55E6005BE5C6 /* LogInViewModel.swift in Sources */,
