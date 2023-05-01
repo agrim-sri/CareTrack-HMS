@@ -98,8 +98,8 @@ struct PatientVitalsView: View {
                                         HStack {
                                             VStack {
                                                 HStack{
-                                                    Text("99")
-                                                        .font(.system(size: 35))
+                                                    Text("\(HealthKitVM.heart)")
+                                                        .font(.system(size: 35))    
                                                         .bold()
                                                     Text("BPM")
                                                         .foregroundColor(.secondary)

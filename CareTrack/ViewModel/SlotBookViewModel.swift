@@ -8,6 +8,16 @@
 import Foundation
 import Firebase
 
+extension Date {
+    var millisecondsSince1970: Int64 {
+        Int64((self.timeIntervalSince1970 * 100.0).rounded())
+    }
+    
+    init(milliseconds: Int64) {
+        self = Date(timeIntervalSince1970: TimeInterval(milliseconds) )
+    }
+}
+
 
 class SlotBookViewModel: ObservableObject {
     
@@ -42,12 +52,11 @@ class SlotBookViewModel: ObservableObject {
             
             // Add a document to a collection
             db.collection("Appointment").addDocument(data:
-                                                        ["Date": Date.timeIntervalSince1970,
+                                                        ["Date": timeStamp,
                                                          "DoctorId": doctorId,
                                                          "PatientId": patientId,
                                                          "PatientName": patientName,
-                                                         "Payment": payment,
-                                                         "Slots": slots]) { error in
+                                                         "Time": slots]) { error in
                 if (error != nil){
                     print(error!)
                 }

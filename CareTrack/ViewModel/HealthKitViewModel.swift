@@ -16,6 +16,7 @@ class HealthKitViewModel: ObservableObject {
     @Published var isAuthorized = false
     @Published var height = ""
     @Published var weight = ""
+    @Published var heart = ""
     
     func healthRequest() {
         healthKitManager.setUpHealthRequest(healthStore: healthStore) { [self] in
@@ -29,6 +30,9 @@ class HealthKitViewModel: ObservableObject {
             }
             healthKitManager.setUpHealthRequestForWeight(healthStore: healthStore){
                 self.readweight()
+            }
+            healthKitManager.setUpHealthRequestForHeartRate(healthStore: healthStore){
+                self.readheart()
             }
         }
         
@@ -96,6 +100,18 @@ class HealthKitViewModel: ObservableObject {
         }
 //        self.sleepAmount = String(format: "%.2f",healthKitManager.sleepAmount)
     }
+    
+    func readheart(){
+        healthKitManager.readHeartRate(healthStore: healthStore) { heart in
+            if heart != 0.0{
+                DispatchQueue.main.async {
+                    self.heart = String(format: "%.0f",heart)
+                }
+            }
+        }
+    }
+    
+    
     
     
 

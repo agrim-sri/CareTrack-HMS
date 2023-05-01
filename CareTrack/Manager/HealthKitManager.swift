@@ -89,6 +89,21 @@ class HealthKitManager {
         }
     }
     
+    func setUpHealthRequestForHeartRate(healthStore: HKHealthStore, readHeart: @escaping () -> Void){
+        if HKHealthStore.isHealthDataAvailable(), let heartrateType = HKObjectType.quantityType(forIdentifier: .heartRate){
+            healthStore.requestAuthorization(toShare: nil, read: [heartrateType]) { success, error in
+                if success{
+                    readHeart()
+                } else if let error = error{
+                    
+                }
+            }
+        }
+    }
+    
+    
+    
+    
     
     
     func readStepCount(forToday: Date, healthStore: HKHealthStore, completion: @escaping (Double) -> Void) {
@@ -210,4 +225,26 @@ class HealthKitManager {
         healthStore.execute(query)
     }
     
+    func readHeartRate(healthStore: HKHealthStore,completion: @escaping (Double) -> Void) {
+            let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate)!
+            
+            let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+            let query = HKSampleQuery(sampleType: heartRateType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) { (query, samples, error) in
+                if let error = error {
+                    print("An error occurred while fetching the latest heart rate sample: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let sample = samples?.first as? HKQuantitySample else {
+                    print("No heart rate samples found.")
+                    return
+                }
+                
+                completion(sample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: HKUnit.minute())))
+            }
+            
+            healthStore.execute(query)
+        }
+    
 }
+

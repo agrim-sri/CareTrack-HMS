@@ -36,8 +36,8 @@ class DoctorLandingPageViewModel:ObservableObject{
         let db = Firestore.firestore()
         
         let collectionRef = db.collection("Appointment")
-        let query = collectionRef.whereField("DoctorID", isEqualTo: Auth.auth().currentUser!.uid)
-        
+        let query = collectionRef.whereField("DoctorId", isEqualTo: Auth.auth().currentUser!.uid)
+        print(Auth.auth().currentUser!.uid)
         
          await query.getDocuments { snapshot, error in
              
@@ -52,8 +52,8 @@ class DoctorLandingPageViewModel:ObservableObject{
                          self.appoitementDetails = snapshot.documents.map { d in
                              
                              // Create a Todo item for each document returned
-                             
-                             return Appointment(doctorId: d["DoctorID"] as? String ?? "", patientId: d["PatientID"] as? String ?? "", date: (d["Date"] as? Timestamp)!, patientName: d["PatientName"] as? String ?? "",time: d["Time"] as? String ?? "")
+                             print(d["PatientName"])
+                             return Appointment(doctorId: d["DoctorID"] as? String ?? "", patientId: d["PatientID"] as? String ?? "", date: d["Date"] as? Int ?? 0, patientName: d["PatientName"] as? String ?? "",time: d["Time"] as? String ?? "")
                              
                          }
                      }

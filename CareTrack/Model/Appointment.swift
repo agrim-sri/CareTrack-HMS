@@ -17,7 +17,7 @@ enum Status{
 struct Appointment{
     var doctorId: String
     var patientId: String
-    var date: Timestamp
+    var date: Int
     var patientName: String
     var time: String
     

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct DoctorScheduleView: View {
     @State var bgColor:Color = Color(red: 242/255, green: 242/255, blue: 242/255)
@@ -50,7 +51,7 @@ struct DoctorScheduleView: View {
                                     Text("Sick")
                                         .font(Font.custom("SF Pro Display Medium", size: 12))
                                         .foregroundColor(symptomsColor)
-                                    Text("\(DoctorLandingViewModel.appoitementDetails[index].date.dateValue().formatted(date: .long, time: .shortened))")
+                                    Text("\(Foundation.Date(milliseconds: Int64(DoctorLandingViewModel.appoitementDetails[index].date)).formatted(date: .complete, time: .omitted))")
                                       .font(Font.custom("SF Pro Display Medium", size: 12))
                                         .foregroundColor(headingColor)
                                 }.padding()
