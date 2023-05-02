@@ -23,9 +23,7 @@ struct DoctorLandingPageView: View {
 // time array
     @State var timeArray:[String] = ["10:00","10:30","11:00","11:30","12:00","5:00","5:30","6:00","6:30","7:00"]
     
-    @StateObject var DoctorLandingViewModel = DoctorLandingPageViewModel()
-
-    
+    @StateObject var DoctorLandingViewModel = DoctorLandingPageViewModel()    
     var body: some View {
         NavigationView {
             ZStack{
@@ -78,19 +76,18 @@ struct DoctorLandingPageView: View {
                         
                         }
                         
-                        VStack {
-                                Picker(" ", selection: $favoriteColor) {
-                                    ForEach(colors, id: \.self) {
-                                        Text($0)
-                                    }
-                                }
-                                .pickerStyle(.segmented)
-
-                                Text("Value: \(favoriteColor)")
-                            }
-                        .padding()
+//                        VStack {
+//                                Picker(" ", selection: $favoriteColor) {
+//                                    ForEach(colors, id: \.self) {
+//                                        Text($0)
+//                                    }
+//                                }
+//                                .pickerStyle(.segmented)
+//
+//                                Text("Value: \(favoriteColor)")
+//                            }
+//                        .padding()
                         
-                        DoctorScheduleView()
 
                         
                     }

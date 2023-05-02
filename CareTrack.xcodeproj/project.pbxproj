@@ -44,6 +44,7 @@
 		AB813A1D29EB1A0F00997731 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB813A1C29EB1A0F00997731 /* OnBoardingView.swift */; };
 		AB813A1F29EB1DD100997731 /* Archivo-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB813A1E29EB1DD100997731 /* Archivo-VariableFont_wdth,wght.ttf */; };
 		AB813A2529EB26C500997731 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = AB813A2429EB26C500997731 /* SF-Pro-Display-Light.otf */; };
+		AB8C7E832A01022B00242238 /* DoctorProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C7E822A01022B00242238 /* DoctorProfileView.swift */; };
 		AB9D5D3F29F8DE0500F5BFA1 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D5D3E29F8DE0500F5BFA1 /* HealthKitManager.swift */; };
 		AB9D5D4229F8E0B600F5BFA1 /* HealthKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D5D4129F8E0B600F5BFA1 /* HealthKitViewModel.swift */; };
 		AB9D5D4429F9412700F5BFA1 /* DoctorLandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D5D4329F9412700F5BFA1 /* DoctorLandingPageView.swift */; };
@@ -97,6 +98,7 @@
 		AB813A1E29EB1DD100997731 /* Archivo-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Archivo-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
 		AB813A2029EB1E5200997731 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AB813A2429EB26C500997731 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
+		AB8C7E822A01022B00242238 /* DoctorProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileView.swift; sourceTree = "<group>"; };
 		AB9D5D3E29F8DE0500F5BFA1 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		AB9D5D4029F8DF4C00F5BFA1 /* CareTrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CareTrack.entitlements; sourceTree = "<group>"; };
 		AB9D5D4129F8E0B600F5BFA1 /* HealthKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModel.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			children = (
 				AB9D5D4529F9415700F5BFA1 /* Doctor Landing Page */,
 				1FD2BD3D29F6860200E0F10C /* DoctorPatientsRecordView.swift */,
+				AB8C7E822A01022B00242238 /* DoctorProfileView.swift */,
 			);
 			path = Doctors;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				ABD6811B29F7DD9C000B8DC0 /* PaymentConfirmedCardView.swift in Sources */,
 				AB5B1E8729F7CCA900763FC6 /* VitalCardView.swift in Sources */,
 				48E332E829F16127001078AA /* SlotBooksView.swift in Sources */,
+				AB8C7E832A01022B00242238 /* DoctorProfileView.swift in Sources */,
 				AB9D5D4A29F9437000F5BFA1 /* AdminManageView.swift in Sources */,
 				1FAB325C29F12DB000228144 /* DoctorSelectionView.swift in Sources */,
 				ABB2003329F6A55100331D5C /* BloodOxygenChartView.swift in Sources */,

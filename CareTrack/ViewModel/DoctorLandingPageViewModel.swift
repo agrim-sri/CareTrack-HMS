@@ -12,6 +12,7 @@ class DoctorLandingPageViewModel:ObservableObject{
     @Published var doctorDetail = [:]
     @Published var appoitementDetails = [Appointment]()
     @Published var doctor = [Doctor]()
+    @Published var t = Booking()
 
     func getDoctorData() {
         
@@ -40,7 +41,7 @@ class DoctorLandingPageViewModel:ObservableObject{
         let query = collectionRef.whereField("DoctorId", isEqualTo: Auth.auth().currentUser!.uid)
         print(Auth.auth().currentUser!.uid)
         
-         await query.getDocuments { snapshot, error in
+        await query.getDocuments { snapshot, error in
              
              // Check for errors
              if error == nil {
@@ -69,6 +70,7 @@ class DoctorLandingPageViewModel:ObservableObject{
          }
         
         print("si")
+        print(t.date)
         
         
     }
