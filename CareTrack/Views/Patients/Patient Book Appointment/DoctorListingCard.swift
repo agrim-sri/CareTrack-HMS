@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct DoctorListingCard: View {
     @State var customBlue:Color = Color(red: 0, green: 125/255, blue: 254/255)
     var docName: String = ""

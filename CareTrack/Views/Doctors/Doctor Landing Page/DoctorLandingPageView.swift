@@ -23,69 +23,84 @@ struct DoctorLandingPageView: View {
 // time array
     @State var timeArray:[String] = ["10:00","10:30","11:00","11:30","12:00","5:00","5:30","6:00","6:30","7:00"]
     
+    @StateObject var DoctorLandingViewModel = DoctorLandingPageViewModel()
 
     
     var body: some View {
-        ZStack{
-            bgColor
-                .ignoresSafeArea()
-            ScrollView{
-                VStack{
-                    HStack{
-                        VStack(alignment:.leading,spacing:15){
-                            Text("Hello 👋")
-                                .font(Font.custom("SF Pro Display Regular", size: 20))
-                                .foregroundColor(headingColor)
-                            
-                            
-                            Text("Dr. Gaurav Ganju")
-                                .font(Font.custom("SF Pro Display Heavy", size: 32))
-                                .foregroundColor(headingColor)
-                            
-                            
-                        }.padding(.leading)
-                        Spacer()
-                        Image("Profile Image")
-                            .padding(.trailing)
-                    }.padding(.bottom)
-                    
+        NavigationView {
+            ZStack{
+                bgColor
+                    .ignoresSafeArea()
+                ScrollView{
                     VStack{
-                        
-                        Text("Upcoming Appointments")
-                            .font(Font.custom("SF Pro Display Semibold", size: 16))
-                            .frame(maxWidth: .infinity,alignment: .leading)
-                            .padding(.leading,16)
-                            .foregroundColor(headingColor)
-                        
-                        Text("26/04/2023")
-                            .font(Font.custom("SF Pro Display Semibold", size: 14))
-                            .frame(maxWidth: .infinity,alignment: .leading)
-                            .padding(.leading,18)
-                            .foregroundColor(headingColor)
-                            .padding([.top,.bottom],5)
-                        
-                        DateCalendarView()
-                    
-                    }
-                    
-                    VStack {
-                            Picker(" ", selection: $favoriteColor) {
-                                ForEach(colors, id: \.self) {
-                                    Text($0)
+                        HStack{
+                            VStack(alignment:.leading,spacing:15){
+                                Text("Hello 👋")
+                                    .font(Font.custom("SF Pro Display Regular", size: 20))
+                                    .foregroundColor(headingColor)
+                                
+                                if DoctorLandingViewModel.doctorDetail.count > 0 {
+                                    Text("\(DoctorLandingViewModel.doctorDetail["name"]!)" as String)
+                                        .font(Font.custom("SF Pro Display Heavy", size: 32))
+                                        .foregroundColor(headingColor)
                                 }
-                            }
-                            .pickerStyle(.segmented)
-
-                            Text("Value: \(favoriteColor)")
+                                    
+                                
+                                
+                                
+                                
+                                
+                            }.padding(.leading)
+                            Spacer()
+                            Image("Profile Image")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 150,height: 150)
+                                .padding(.trailing)
+                        }.padding(.bottom)
+                        
+                        VStack{
+                            
+                            Text("Upcoming Appointments")
+                                .font(Font.custom("SF Pro Display Semibold", size: 16))
+                                .frame(maxWidth: .infinity,alignment: .leading)
+                                .padding(.leading,16)
+                                .foregroundColor(headingColor)
+                            
+                            Text("26/04/2023")
+                                .font(Font.custom("SF Pro Display Semibold", size: 14))
+                                .frame(maxWidth: .infinity,alignment: .leading)
+                                .padding(.leading,18)
+                                .foregroundColor(headingColor)
+                                .padding([.top,.bottom],5)
+                            
+                            DateCalendarView()
+                        
                         }
-                    .padding()
-                    
-                    DoctorScheduleView()
+                        
+                        VStack {
+                                Picker(" ", selection: $favoriteColor) {
+                                    ForEach(colors, id: \.self) {
+                                        Text($0)
+                                    }
+                                }
+                                .pickerStyle(.segmented)
 
-                    
+                                Text("Value: \(favoriteColor)")
+                            }
+                        .padding()
+                        
+                        DoctorScheduleView()
+
+                        
+                    }
+                    .foregroundColor(bgColor)
                 }
-                .foregroundColor(bgColor)
             }
+            .task {
+                DoctorLandingViewModel.getDoctorData()
+
+        }
         }
     }
 

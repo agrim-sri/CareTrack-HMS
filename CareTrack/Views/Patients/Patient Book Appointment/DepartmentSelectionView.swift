@@ -32,7 +32,7 @@ struct DepartmentSelectionView: View {
 
     ]
     @State var showMore: Bool = false
-    @State var search: String = ""
+    @State var searchDept: String = ""
     var body: some View {
         NavigationView{
             ZStack {
@@ -88,12 +88,12 @@ struct DepartmentSelectionView: View {
                 }.navigationTitle(Text("Book Appointment"))
             }
                 
-        }.searchable(text: $search)
+        }.searchable(text: $searchDept)
     }
     var searchResults: [String: String] {
         var temp: [String : String] = [:]
         var count = 0
-            if search.isEmpty && !showMore {
+            if searchDept.isEmpty && !showMore {
                 for (i,j) in dict{
                     if count<4{
                         temp[i] = j
@@ -104,12 +104,12 @@ struct DepartmentSelectionView: View {
                 return temp
             }
             
-        else if showMore && search.isEmpty{
+        else if showMore && searchDept.isEmpty{
             return dict
         }
         
             else {
-                return dict.filter {$0.key.contains(search) }
+                return dict.filter {$0.key.contains(searchDept) }
             }
     }
 }

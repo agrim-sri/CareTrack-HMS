@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 enum Status{
     case Upcomming
@@ -14,11 +15,13 @@ enum Status{
 }
 
 struct Appointment{
-    var appointmentId: String
     var doctorId: String
     var patientId: String
-    var payIsSuccess : Bool
-    var date: Date
+    var date: Int
+    var doctorName: String
+    var department: String
+    var patientName: String
+    var time: String
     
 }
 

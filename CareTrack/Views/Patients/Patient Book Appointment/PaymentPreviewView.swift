@@ -6,10 +6,17 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct PaymentPreviewView: View {
+    var docID: String = ""
     var name: String = ""
     var dept: String = ""
+    var time: String = ""
+    var date: Date = Date()
+    @State var showSuccessOnPayment: Bool = false
+    @StateObject var slotBookingVM = SlotBookViewModel()
+    @StateObject var userVM = PatientDashboardViewModel()
     var body: some View {
         ZStack{
             Color(red: 0.949, green: 0.949, blue: 0.949)
@@ -28,6 +35,9 @@ struct PaymentPreviewView: View {
                         }.padding(.leading)
                         Spacer()
                         Image("Profile Image")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 150, height: 150)
                             .padding(.trailing)
                     }.background{
                         RoundedRectangle(cornerRadius: 20)
@@ -45,7 +55,8 @@ struct PaymentPreviewView: View {
                             .foregroundColor(.blue)
                             .frame(width: 30,height: 30)
                             .padding(.leading)
-                        Text("Wednesday, Jun 23,2023 | 10:00 AM")
+                        Spacer()
+                        Text("\(date.formatted(date: .complete, time: .omitted)) | \(time):00")
                             .padding(.top)
                             .padding(.bottom)
                             .padding(.trailing)
@@ -114,8 +125,9 @@ struct PaymentPreviewView: View {
                         }.padding(.leading)
                         
                         Spacer()
-                        NavigationLink {
-                            PaymentConfirmedCardView()
+                        Button {
+                            showSuccessOnPayment.toggle()
+                            slotBookingVM.addData(doctorId: docID, patientId: Auth.auth().currentUser!.uid,doctorName: name, department: dept, patientName: userVM.user[0].name, Date: date, slots: time)
                         } label: {
                             Text("Pay Now")
                                 .padding()
@@ -131,7 +143,15 @@ struct PaymentPreviewView: View {
                     }
                 }
             }
+            if showSuccessOnPayment{
+                PaymentConfirmedCardView()
+                    .animation(.easeIn(duration: 2), value: showSuccessOnPayment)
+            }
         }.navigationTitle("Confirm Appointment")
+            .task {
+                userVM.getUser()
+            }
+        
     }
 }
 

@@ -9,23 +9,19 @@ import SwiftUI
 
 struct DoctorSelectionView: View {
     
-    @ObservedObject var model = DoctorSelectionViewModel()
+    @StateObject var model = DoctorSelectionViewModel()
     
     @State var searchText = ""
     @State var customBlue:CGColor = CGColor(red: 0.139, green: 0.561, blue: 0.996, alpha: 1)
-    let docDict: [String: Int] = ["Dr. Omkar Oberoi": 5,
-                                  "Dr. Prakesh Raj": 3,
-                                  "Dr. Sammer Singh":6
-                            ]
+
     var department: String = ""
-    let experience: [Int] = [5,3,6]
     var body: some View {
         ZStack{
             Color(red: 0.949, green: 0.949, blue: 0.949)
                 .ignoresSafeArea()
             ScrollView(showsIndicators: false){
-                ForEach(model.list){ d in
-                    NavigationLink(destination: SlotBookView(docID: model.list.first!.id,docName: d.name,department: d.department,experience: d.yearsOfExperience)) {
+                ForEach(searchResults){ d in
+                    NavigationLink(destination: SlotBooksView(docID: d.id,docName: d.name, dept: d.department,rating: 4,qualification: d.Qualification,exp : d.Experience)) {
                         
                         VStack{
                             ZStack{
@@ -43,7 +39,7 @@ struct DoctorSelectionView: View {
                                         Text(d.department)
                                             .font(Font.custom("SF Pro Display", size: 16))
                                             .foregroundColor(.secondary)
-                                        Text("Experience : \(d.yearsOfExperience) years")
+                                        Text("Experience : \(d.Experience) years")
                                             .font(Font.custom("SF Pro Display", size: 16))
                                             .foregroundColor(.black)
                                         
@@ -87,15 +83,15 @@ struct DoctorSelectionView: View {
             .navigationTitle("Doctors")
             .searchable(text: $searchText)
         }.task{
-            model.getData()
+            model.getDoctors(dept: department)
         }
             
     }
-        var searchResults: [String: Int] {
+        var searchResults: [Doctor] {
             if searchText.isEmpty {
-                return docDict
+                return model.doctors
             } else {
-                return docDict.filter {$0.key.contains(searchText) }
+                return model.doctors.filter {$0.name.contains(searchText) }
             }
             
         }

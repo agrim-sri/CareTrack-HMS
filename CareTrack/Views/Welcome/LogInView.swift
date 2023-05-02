@@ -7,6 +7,28 @@
 
 import SwiftUI
 import Firebase
+
+extension String {
+  func regex (pattern: String) -> [String] {
+    do {
+        let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options(rawValue: 0))
+      let nsstr = self as NSString
+      let all = NSRange(location: 0, length: nsstr.length)
+      var matches : [String] = [String]()
+        regex.enumerateMatches(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: all) {
+        (result : NSTextCheckingResult?, _, _) in
+        if let r = result {
+            let result = nsstr.substring(with: r.range) as String
+          matches.append(result)
+        }
+      }
+      return matches
+    } catch {
+      return [String]()
+    }
+  }
+}
+
 struct LogInView: View {
     
     @State var email: String = ""
@@ -14,13 +36,13 @@ struct LogInView: View {
     @StateObject var login = LogInViewModel()
     @State var showAlert: Bool = false
     @State var alertMessage: String = ""
-    @AppStorage("signIn") var isSignIn: Bool = false
+    @AppStorage("usersignIn") var userIsSignIn: Bool = false
+    @AppStorage("doctorsignIn") var doctorIsSignIn: Bool = false
+
 
     
     var body: some View {
         VStack {
-            
-            
             PartialCircle()
                 .foregroundColor(.blue)
                 .overlay{
@@ -97,18 +119,37 @@ struct LogInView: View {
         
     }
     func verifyUser(email: String, password: String){
-        Auth.auth().signIn(withEmail: email, password: password){ result, error in
-            
-            if(error != nil){
-                print(error?.localizedDescription)
-                self.alertMessage = error!.localizedDescription
-                self.showAlert.toggle()
-                return
+        let doctorRegex = email.regex(pattern:"[a-z-A-Z-0-9-.-_]*@caretrack.com")
+        
+        if doctorRegex.count > 0 && doctorRegex[0] == email{
+            Auth.auth().signIn(withEmail: email, password: password){ result, error in
+                
+                if(error != nil){
+                    print(error?.localizedDescription)
+                    self.alertMessage = error!.localizedDescription
+                    self.showAlert.toggle()
+                    return
+                }
+                
+                print("Welcome! doctor")
+                doctorIsSignIn.toggle()
             }
-            
-            print("Welcome!")
-            isSignIn.toggle()
         }
+        else{
+            Auth.auth().signIn(withEmail: email, password: password){ result, error in
+                
+                if(error != nil){
+                    print(error?.localizedDescription)
+                    self.alertMessage = error!.localizedDescription
+                    self.showAlert.toggle()
+                    return
+                }
+                
+                print("Welcome! user")
+                userIsSignIn.toggle()
+            }
+        }
+        
     }
 }
 

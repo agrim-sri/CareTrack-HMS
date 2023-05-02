@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 struct Doctor: Identifiable {
     
@@ -16,8 +15,12 @@ struct Doctor: Identifiable {
     //var isDoctor: Bool
     var department: String
     //var unavailability: [Date]
-    var qualification: String
-    var yearsOfExperience: Int
+    var Qualification: String
+    var Experience: Int
+    var gender:String
+    var phone:Int
+    var Age:Int
+    
     //var image: UIImage?
 }
 

@@ -7,10 +7,23 @@
 
 import SwiftUI
 
+struct DictionaryElementWrapper: Hashable {
+    let key: String
+    let value: [String]
+    
+    init(_ element: (key: String, value: [String])) {
+        self.key = element.key
+        self.value = element.value
+    }
+}
+
 struct PaitentRecordView: View {
-    let datesarray: [String] = ["11/02/2023","20/11/2022","30/11/2022"]
-    let docname:[String] = ["Dr. Aryan Thakur","Dr. Mim Desai","Dr. Aryan Khanna"]
-    let symname: [String] = ["Food Poisoning","Cough","Headache"]
+    let DocData = ["Dr. Aryan Thakur": ["Food Poisoning", "11/02/2023"],"Dr. Mim Desai":["Cough", "20/11/2022"],"Dr. Ryan Khanna":["Headache", "30/11/2022"]]
+    
+    @State var searchDoc: String = ""
+    @State var showMoreDoc: Bool = false
+   
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -19,19 +32,19 @@ struct PaitentRecordView: View {
                 ScrollView(showsIndicators: false){
                     VStack{
                           
-                        ForEach(0..<symname.count){ i in
+                        ForEach(searchResult.sorted(by: { $0.key < $1.key }).map(DictionaryElementWrapper.init),id :\.self){ i in
                             NavigationLink(destination: PatientPrescriptionView()) {
                                 HStack{
                                     VStack(alignment: .leading,spacing:15){
-                                        Text(docname[i])
+                                        Text(i.key)
                                             .font(Font.custom("SF Pro Display Semibold", size: 20))
                                             .foregroundColor(.black)
-                                        Text(symname[i])
+                                        Text(i.value[0])
                                             .font(Font.custom("SF Pro Display Medium", size: 16))
                                             .foregroundColor(Color(red: 157/255, green: 159/255, blue: 159/255))
                                             //.padding(.top)
 
-                                        Text("Date: \(datesarray[i])")
+                                        Text("Date: \(i.value[1])")
                                             .font(Font.custom("SF Pro Display Light", size: 14))
                                             .foregroundColor(Color(red: 157/255, green: 159/255, blue: 159/255))
 
@@ -65,6 +78,18 @@ struct PaitentRecordView: View {
                 }
                 .navigationTitle(Text("Records"))
             }
+        }.searchable(text: $searchDoc,prompt: Text("Search Records"))
+            
+            
+            
+    }
+    
+    var searchResult: [String:[String]] {
+        if searchDoc.isEmpty {
+            return DocData
+        }
+        else {
+            return DocData.filter {$0.key.contains(searchDoc) }
         }
     }
 }
