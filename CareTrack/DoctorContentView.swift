@@ -21,7 +21,7 @@ struct DoctorContentView: View {
                                 Text("Record")
                             }
                        
-                        PatientProfileView()
+                        DoctorProfileView()
                             .tabItem {
                                 Image(systemName: "person")
                                 Text("Profile")

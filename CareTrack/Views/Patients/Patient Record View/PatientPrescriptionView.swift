@@ -2,141 +2,296 @@
 //  PatientPrescriptionView.swift
 //  CareTrack
 //
-//  Created by Zeal Shah  on 20/04/23.
+//  Created by Sanskriti Sinha on 02/05/2023.
 //
 
 import SwiftUI
 
 struct PatientPrescriptionView: View {
-    let columns: [GridItem] = [GridItem(.fixed(UIScreen.screenWidth / 3)),GridItem(.fixed(UIScreen.screenWidth / 3)),GridItem(.fixed(UIScreen.screenWidth / 3))]
 
     var body: some View {
         
-        ScrollView {
-            VStack {
-//                Text("Prescription")
-//                    .font(Font.custom("SF Pro Display Bold", size: 32))
-//                    .frame(maxWidth: .infinity,alignment: .leading)
-//                    .padding(.leading)
-//                    .padding(.top)
-                HStack{
-                    Text("Symtoms:")
-                        .font(Font.custom("SF Pro Display Semibold", size: 24))
-                        .frame(maxWidth: .infinity,alignment: .leading)
-                        .padding(.leading)
-                    Text("Fatigue,Fever")
-                        .font(Font.custom("SF Pro Display Light", size: 24))
-                        .frame(maxWidth: .infinity,alignment: .leading)
-                }
-                .padding(.top)
-                VStack{
-                    Text("Medication")
-                        .font(Font.custom("SF Pro Display Semibold", size: 24))
-                        .frame(maxWidth: .infinity,alignment: .leading)
-                        .padding(.leading)
-                    HStack{
-                        Text("Name")
-                            .font(Font.custom("SF Pro Display Light", size: 24))
-                            .padding(.leading)
-                            .padding(.top,3)
-                        Spacer()
-                        Text("Dosage")
-                            .font(Font.custom("SF Pro Display Light", size: 24))
-                        Spacer()
-                        Text("Days")
-                            .font(Font.custom("SF Pro Display Light", size: 24))
-                            .padding((.trailing))
-                    }
-                    Divider()
-                        .frame(height:2)
-                        .overlay(.black)
-                        .padding()
-                }
+        ZStack {
+            Color(red: 0.949, green: 0.949, blue: 0.949)
+                .ignoresSafeArea()
+            
+            ScrollView {
                 
-                .padding(.top)
-                Text(" M - A - N")
-                LazyVGrid(columns: columns) {
-                    ForEach(0..<1) {i in
-                        Text("Dolo 650")
-                        Text("1 - 1 - 1")
-                        Text("30")
-                    }
-                }
-                HStack{
-                    Text("Remarks:")
-                        .font(Font.custom("SF Pro Display Semibold", size: 24))
-                        .padding(.leading)
-                    Spacer()
-                    Text("Take Rest for 3 days. Eat Light Foods and avoid Oily Foods.")
-                        .font(Font.custom("SF Pro Display Light", size: 20))
-                        .padding(.trailing)
-                        .padding(.top,10)
-                        .lineLimit(3)
-                    Spacer()
+                VStack {
+                    HStack {
+                        VStack(spacing: 10){
+                            Text("Omkar Oberio")
+                                .padding(.leading)
+                                .frame(maxWidth: .infinity,alignment: .leading)
+                                .padding(.leading)
+                                .font(Font.custom("SF Pro Display Bold", size: 20))
+                                
+                            Text("Male")
+                                .frame(maxWidth: .infinity,alignment: .leading)
+                                .padding(.leading)
+                                .padding(.leading)
+                                .font(Font.custom("SF Pro Display", size: 16))
+                                .foregroundColor(Color(red: 0.467, green: 0.467, blue: 0.467))
+                            
+                            Text("21 yrs")
+                                .frame(maxWidth: .infinity,alignment: .leading)
+                                .padding(.leading)
+                                .padding(.leading)
+                                .font(Font.custom("SF Pro Display", size: 16))
+                                .foregroundColor(Color(red: 0.467, green: 0.467, blue: 0.467))
+                                
+                        }
+                        
+                        Image("Profile Image")
+                            .resizable()
+                            .frame(width: 120, height: 120)
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.trailing)
+                    }.background{
+                        RoundedRectangle(cornerRadius: 15)
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.screenWidth - 32)
+                    }.padding(.top)
                     
+                    VStack{
+                        Text("Symptoms")
+                            .padding()
+                            .foregroundColor(.black)
+                            .bold()
+                            .font(Font.custom("SF Pro Display", size: 24))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                        
+                        Text("Fever, Headache, Fatigue")
+                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .padding(.leading)
+                            .padding(.leading)
+                            .background {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width: UIScreen.screenWidth - 32, height: 60)
+                                    .foregroundColor(.white)
+                            }.padding(.top)
+                            .foregroundColor(Color(red: 0.467, green: 0.467, blue: 0.467))
+                            .font(Font.custom("SF Pro Display Light", size: 20))
+                    }.padding(.bottom)
+                    
+                    VStack{
+                        Text("Medications")
+                            .padding()
+                            .foregroundColor(.black)
+                            .bold()
+                            .font(Font.custom("SF Pro Display", size: 24))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                            
+                        
+                        RoundedRectangle(cornerRadius: 15)
+                            .frame(width: UIScreen.screenWidth - 32, height: 250)
+                            .foregroundColor(.white)
+                            .overlay{
+                                VStack{
+                                    
+                                    HStack {
+                                        VStack{
+                                            Text("Dolo 6050")
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .padding(.leading)
+                                                .font(Font.custom("SF Pro Display Semibold", size: 20))
+                                            
+                                            Text("After having food")
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .padding(.leading)
+                                                .padding(.top, 1)
+                                                .foregroundColor(Color(red: 0.635, green: 0.643, blue: 0.643))
+                                            
+                                            Text("(30 days)")
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .padding(.leading)
+                                                .padding(.top, 1)
+                                                .foregroundColor(.black)
+                                        }
+                                        
+                                        VStack{
+                                            Image(systemName: "sun.max")
+                                            .foregroundColor(Color(red: 0.999, green: 0.751, blue: 0.398))
+                                            .bold()
+                                            
+                                            Text("1")
+                                                .padding()
+                                                .bold()
+                                            
+                                            Text("M")
+                                                .bold()
+                                        }
+                                        
+                                        VStack{
+                                            Image(systemName: "sun.haze")
+                                                .foregroundColor(Color(red: 1.001, green: 0.502, blue: 0.225))
+                                            .bold()
+                                            
+                                            Text("0")
+                                                .padding()
+                                                .bold()
+                                            
+                                            Text("A")
+                                                .bold()
+                                        }
+                                        
+                                        VStack{
+                                            Image(systemName: "moon")
+                                                .foregroundColor(Color(red: 0.003, green: 0.387, blue: 0.791))
+                                            .bold()
+                                            
+                                            Text("1")
+                                                .padding()
+                                                .bold()
+                                            
+                                            Text("N")
+                                                .bold()
+                                        }
+                                    }
+                                    
+                                    Divider()
+                                        .background(.black)
+                                        .frame(width: UIScreen.screenWidth - 64)
+                                    
+                                    HStack {
+                                        VStack{
+                                            Text("Dolo 6050")
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .padding(.leading)
+                                                .font(Font.custom("SF Pro Display Semibold", size: 20))
+                                            
+                                            Text("After having food")
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .padding(.leading)
+                                                .padding(.top, 1)
+                                                .foregroundColor(Color(red: 0.635, green: 0.643, blue: 0.643))
+                                            
+                                            Text("(30 days)")
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .padding(.leading)
+                                                .padding(.top, 1)
+                                                .foregroundColor(.black)
+                                        }
+                                        
+                                        VStack{
+                                            Image(systemName: "sun.max")
+                                            .foregroundColor(Color(red: 0.999, green: 0.751, blue: 0.398))
+                                            .bold()
+                                            
+                                            Text("1")
+                                                .padding()
+                                                .bold()
+                                            
+                                            Text("M")
+                                                .bold()
+                                        }
+                                        
+                                        VStack{
+                                            Image(systemName: "sun.haze")
+                                                .foregroundColor(Color(red: 1.001, green: 0.502, blue: 0.225))
+                                            .bold()
+                                            
+                                            Text("0")
+                                                .padding()
+                                                .bold()
+                                            
+                                            Text("A")
+                                                .bold()
+                                        }
+                                        
+                                        VStack{
+                                            Image(systemName: "moon")
+                                                .foregroundColor(Color(red: 0.003, green: 0.387, blue: 0.791))
+                                            .bold()
+                                            
+                                            Text("1")
+                                                .padding()
+                                                .bold()
+                                            
+                                            Text("N")
+                                                .bold()
+                                        }
+                                    }
+                                    
+                                }
+                                }
+                            }
+                    
+                    VStack{
+                        Text("Tests")
+                            .padding()
+                            .bold()
+                            .font(Font.custom("SF Pro Display", size: 24))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                        
+                        Text("X-ray, Blood test for malaria.")
+                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .foregroundColor(Color(red: 0.467, green: 0.467, blue: 0.467))
+                            .padding(.leading)
+                            .padding(.leading)
+                            .background {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width: UIScreen.screenWidth - 32, height: 60)
+                                    .foregroundColor(.white)
+                            }.padding(.top)
+                            .foregroundColor(Color(red: 0.467, green: 0.467, blue: 0.467))
+                            .font(Font.custom("SF Pro Display Light", size: 20))
+                            
+                    }.padding(.bottom)
+                    
+                    VStack{
+                        Text("Suggestions")
+                            .padding()
+                            .foregroundColor(.black)
+                            .bold()
+                            .font(Font.custom("SF Pro Display", size: 24))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                        
+                        Text("Drink orange juice, Be healthy, Sleep properly.")
+                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .padding(.leading)
+                            .padding(.leading)
+                            .background {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width: UIScreen.screenWidth - 32, height: 60)
+                                    .foregroundColor(.white)
+                            }.padding(.top)
+                            .foregroundColor(Color(red: 0.467, green: 0.467, blue: 0.467))
+                            .font(Font.custom("SF Pro Display Light", size: 20))
+                    }.padding(.bottom)
+                    
+                    VStack{
+                        Text("Diagnosis")
+                            .padding()
+                            .foregroundColor(.black)
+                            .bold()
+                            .font(Font.custom("SF Pro Display", size: 24))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                        
+                        Text("Depression, Anxiety.")
+                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .padding(.leading)
+                            .padding(.leading)
+                            .background {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width: UIScreen.screenWidth - 32, height: 60)
+                                    .foregroundColor(.white)
+                            }.padding(.top)
+                            .foregroundColor(Color(red: 0.467, green: 0.467, blue: 0.467))
+                            .font(Font.custom("SF Pro Display Light", size: 20))
+                    }.padding(.bottom)
+                    }
                 }
-                .padding(.top)
-                Divider()
-                    .frame(height: 2)
-                    .overlay(.black)
-                    .padding()
-                VStack{
-                    Text("Test Prescribed:")
-                        .font(Font.custom("SF Pro Display Semibold", size: 24))
-                        .frame(maxWidth: .infinity,alignment: .leading)
-                        .padding(.leading)
-                    Text("X-Ray for chest")
-                        .font(Font.custom("SF Pro Display Light", size: 20))
-                        .frame(maxWidth: .infinity,alignment: .leading)
-                        .padding(.leading)
-                        .padding(.top,2)
-                }
-                HStack{
-                    Text("Diagnosis:")
-                        .font(Font.custom("SF Pro Display Semibold", size: 24))
-                        .padding(.leading)
-                    Spacer()
-                    Text("Common Cold")
-                        .font(Font.custom("SF Pro Display Light", size: 20))
-                        .padding(.trailing)
-                        .padding(.top,10)
-                    Spacer()
-                    Spacer()
-                }
-                .padding(.top,2)
-                VStack{
-                    Text("Advice:")
-                        .font(Font.custom("SF Pro Display Semibold", size: 24))
-                        .frame(maxWidth: .infinity,alignment: .leading)
-                        .padding(.leading)
-                    Text("Take Rest for 5 days")
-                        .font(Font.custom("SF Pro Display Light", size: 20))
-                        .frame(maxWidth: .infinity,alignment: .leading)
-                        .padding(.leading)
-                        .padding(.top,1)
-                }
-                .padding(.top,2)
-            }
-            Divider()
-                .frame(height: 2)
-                .overlay(.black)
-                .padding()
-            .padding(.top,2)
-            HStack{
-                Text("You paid:")
-                    .font(Font.custom("SF Pro Display Semibold", size: 24))
-                    .padding(.leading)
-                Spacer()
-                Text("Rs. 890")
-                    .font(Font.custom("SF Pro Display Semibold", size: 24))
-                    .padding(.trailing,30)
-               
                 
-            }
+            }.navigationTitle(Text("Prescription Form"))
+                
         }
-        .navigationTitle(Text("Prescription"))
     }
-}
 
 struct PatientPrescriptionView_Previews: PreviewProvider {
     static var previews: some View {

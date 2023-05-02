@@ -19,7 +19,7 @@ struct CareTrackApp: App {
     var body: some Scene {
         WindowGroup {
             if doctorIsSignIn{
-                DoctorLandingPageView()
+                DoctorContentView()
             }
             else if userIsSignIn{
                 ContentView()
