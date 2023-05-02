@@ -127,7 +127,7 @@ struct PaymentPreviewView: View {
                         Spacer()
                         Button {
                             showSuccessOnPayment.toggle()
-                            slotBookingVM.addData(doctorId: docID, patientId: Auth.auth().currentUser!.uid, patientName: userVM.user[0].name, Date: date, slots: time)
+                            slotBookingVM.addData(doctorId: docID, patientId: Auth.auth().currentUser!.uid,doctorName: name, department: dept, patientName: userVM.user[0].name, Date: date, slots: time)
                         } label: {
                             Text("Pay Now")
                                 .padding()

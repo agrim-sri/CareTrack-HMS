@@ -21,7 +21,7 @@ extension Date {
 
 class SlotBookViewModel: ObservableObject {
     
-    func addData(doctorId: String, patientId: String, patientName: String,Date: Date, payment: Bool = true, slots: String) {
+    func addData(doctorId: String, patientId: String, doctorName: String, department: String,patientName: String,Date: Date, payment: Bool = true, slots: String) {
         
 
         let dateFormatter = DateFormatter()
@@ -55,6 +55,8 @@ class SlotBookViewModel: ObservableObject {
                                                         ["Date": timeStamp,
                                                          "DoctorId": doctorId,
                                                          "PatientId": patientId,
+                                                         "DoctorName": doctorName,
+                                                         "Department": department,
                                                          "PatientName": patientName,
                                                          "Time": slots]) { error in
                 if (error != nil){

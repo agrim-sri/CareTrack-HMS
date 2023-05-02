@@ -47,74 +47,49 @@ struct PatientDashboardView: View {
                             .frame(maxWidth: .infinity,alignment: .leading)
                             .padding(.leading)
                         ScrollView(.horizontal,showsIndicators: false){
-                            HStack{
-                                HStack{
-                                    VStack(spacing: 5){
-                                        Text("12")
-                                            .font(Font.custom("SF Pro Display Heavy", size: 20))
-                                            .foregroundColor(.white)
-                                        Text("Tue")
-                                            .font(Font.custom("SF Pro Display", size: 16))
-                                            .foregroundColor(.white)
-                                    }.padding()
-                                        .background {
-                                            RoundedRectangle(cornerRadius: 20)
-                                                .foregroundColor(Color(red: 0.139, green: 0.561, blue: 0.996))
-                                        }
-                                        .padding()
+                            
+                            HStack {
+                                ForEach(0..<patientVM.appointments.count, id: \.self){i in
+                                    HStack{
+                                        HStack{
+                                            VStack(spacing: 5){
+                                                Text("\(Foundation.Date(milliseconds: Int64(patientVM.appointments[i].date)).formatted(date: .abbreviated, time: .omitted))")
+                                                    .frame(width: UIScreen.screenWidth * 0.2)
+                                                    .font(Font.custom("SF Pro Display Heavy", size: 20))
+                                                    .foregroundColor(.white)
+                                                
+                                            }.padding()
+                                                .background {
+                                                    RoundedRectangle(cornerRadius: 20)
+                                                        .foregroundColor(Color(red: 0.139, green: 0.561, blue: 0.996))
+                                                }
+                                                .padding()
+                                                
+                                            VStack(alignment: .leading, spacing:5){
+                                                Text("\(patientVM.appointments[i].time):00")
+                                                    .font(Font.custom("SF Pro Display", size: 16))
+                                                    .foregroundColor(.white)
+                                                    
+                                                
+                                                Text("\(patientVM.appointments[i].doctorName)")
+                                                    
+                                                    .font(Font.custom("SF Pro Display Heavy", size: 16))
+                                                    .fontWeight(.bold)
+                                                    .foregroundColor(.white)
+                                                Text("\(patientVM.appointments[i].department)")
+                                                    .font(Font.custom("SF Pro Display Light", size: 16))
+                                                    .foregroundColor(.white)
+                                            }
+                                            .padding()
+                                        }.background{
+                                            RoundedRectangle(cornerRadius: 28)
+                                                .foregroundColor(Color(red: 0.008, green: 0.49, blue: 0.998))
+                                        }.padding(.leading)
                                         
-                                    VStack(alignment: .leading, spacing:5){
-                                        Text("09:30 AM")
-                                            .font(Font.custom("SF Pro Display", size: 16))
-                                            .foregroundColor(.white)
-                                            
-                                        Text("Dr. Mim Akhter")
-                                            .font(Font.custom("SF Pro Display Heavy", size: 16))
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.white)
-                                        Text("Cardiologist")
-                                            .font(Font.custom("SF Pro Display Light", size: 16))
-                                            .foregroundColor(.white)
                                     }
-                                    .padding()
-                                }.background{
-                                    RoundedRectangle(cornerRadius: 28)
-                                        .foregroundColor(Color(red: 0.008, green: 0.49, blue: 0.998))
-                                }.padding(.leading)
-                                HStack{
-                                    VStack(spacing: 5){
-                                        Text("20")
-                                            .font(Font.custom("SF Pro Display Heavy", size: 20))
-                                            .foregroundColor(.white)
-                                        Text("Tue")
-                                            .font(Font.custom("SF Pro Display", size: 16))
-                                            .foregroundColor(.white)
-                                    }.padding()
-                                        .background {
-                                            RoundedRectangle(cornerRadius: 20)
-                                                .foregroundColor(Color(red: 0.139, green: 0.561, blue: 0.996))
-                                        }
-                                        .padding()
-                                        
-                                    VStack(alignment: .leading, spacing:5){
-                                        Text("09:30 AM")
-                                            .font(Font.custom("SF Pro Display", size: 16))
-                                            .foregroundColor(.white)
-                                            
-                                        Text("Dr. Mim Akhter")
-                                            .font(Font.custom("SF Pro Display Heavy", size: 16))
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.white)
-                                        Text("Cardiologist")
-                                            .font(Font.custom("SF Pro Display Light", size: 16))
-                                            .foregroundColor(.white)
-                                    }
-                                    .padding()
-                                }.background{
-                                    RoundedRectangle(cornerRadius: 28)
-                                        .foregroundColor(Color(red: 0.008, green: 0.49, blue: 0.998))
                                 }
                             }
+                            
                             
                         }
                         

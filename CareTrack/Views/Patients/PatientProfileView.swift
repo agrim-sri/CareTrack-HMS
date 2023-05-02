@@ -28,7 +28,7 @@ struct PatientProfileView: View {
                         Spacer()
                         VStack{
                             Spacer()
-                            Text("Gaurav Ganju")
+                            Text("Prakhar Parakh")
                                 .font(Font.custom("SF Pro Display Semibold", size: 20))
                                 .frame(maxWidth: .infinity,alignment: .leading)
                             Spacer()

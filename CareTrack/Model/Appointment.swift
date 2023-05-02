@@ -18,6 +18,8 @@ struct Appointment{
     var doctorId: String
     var patientId: String
     var date: Int
+    var doctorName: String
+    var department: String
     var patientName: String
     var time: String
     

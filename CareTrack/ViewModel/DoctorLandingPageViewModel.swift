@@ -11,6 +11,7 @@ import Firebase
 class DoctorLandingPageViewModel:ObservableObject{
     @Published var doctorDetail = [:]
     @Published var appoitementDetails = [Appointment]()
+    @Published var doctor = [Doctor]()
 
     func getDoctorData() {
         
@@ -53,7 +54,7 @@ class DoctorLandingPageViewModel:ObservableObject{
                              
                              // Create a Todo item for each document returned
                              print(d["PatientName"])
-                             return Appointment(doctorId: d["DoctorID"] as? String ?? "", patientId: d["PatientID"] as? String ?? "", date: d["Date"] as? Int ?? 0, patientName: d["PatientName"] as? String ?? "",time: d["Time"] as? String ?? "")
+                             return Appointment(doctorId: d["DoctoId"] as? String ?? "", patientId: d["PatientId"] as? String ?? "", date: d["Date"] as? Int ?? 0, doctorName: d["DoctorName"] as? String ?? "",department: d["Department"] as? String ?? "",patientName: d["PatientName"] as? String ?? "", time: d["Time"] as? String ?? "")
                              
                          }
                      }
