@@ -15,20 +15,30 @@ struct CareTrackApp: App {
     }
     @AppStorage("usersignIn") var userIsSignIn: Bool = false
     @AppStorage("doctorsignIn") var doctorIsSignIn: Bool = false
+    @State var showLaunchScreen: Bool = true
 
     var body: some Scene {
         WindowGroup {
-            if doctorIsSignIn{
-                DoctorContentView()
-            }
-            else if userIsSignIn{
-                ContentView()
-            }
-            else{
-                OnBoardingView()
+            
+            ZStack{
+                
+                if doctorIsSignIn{
+                    DoctorContentView()
+                }
+                else if userIsSignIn{
+                    ContentView()
+                }
+                else{
+                    OnBoardingView()
 
+                }
+                if showLaunchScreen{
+                    SplashScreenView(showLaunchScreen: $showLaunchScreen)
+                }
             }
+            
             
         }
     }
 }
+

@@ -43,75 +43,64 @@ struct LogInView: View {
     
     var body: some View {
         VStack {
-            PartialCircle()
-                .foregroundColor(.blue)
-                .overlay{
-                    VStack{
-                        Text("Log In")
-                            .font(Font.custom("Archivo", size: 40))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading)
-                            .padding(.leading)
-                            .padding(.top)
-                            .foregroundColor(.white)
-                        
-                        Spacer()
-                    }
+                
+                LogView()
+            
                     
-                    VStack{
-                        TextField("Enter your Email", text : $email)
-                            .frame(width: 280, height: 40)
-                            .font(Font.custom("SF Pro Display", size: 17))
-                            
-                            .padding(.leading, 30)
-                            .background{
-                                RoundedRectangle(cornerRadius: 15)
-                                    .stroke(lineWidth: 2.0)
-                                    
-                                    .foregroundColor(Color(red: 0.636, green: 0.716, blue: 0.998))
-                                    .frame(width: 280, height: 40)
-                                    .background{
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .fill(Color(red: 0.926, green: 0.946, blue: 1.001))
-                                            
-                                    }
-                            }
+                VStack{
+                    TextField("Enter your Email", text : $email)
+                        .frame(width: 280, height: 40)
+                        .font(Font.custom("SF Pro Display", size: 17))
                         
-                        SecureField("Enter your Password", text : $password)
-                            .frame(width: 280, height: 40)
-                            .font(Font.custom("SF Pro Display", size: 17))
-                            .padding(.leading, 30)
-                            .padding()
-                            .background{
-                                RoundedRectangle(cornerRadius: 15)
-                                    .stroke(lineWidth: 2.0)
-                                    
-                                    .foregroundColor(Color(red: 0.636, green: 0.716, blue: 0.998))
-                                    .frame(width: 280, height: 40)
-                                    .background{
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .fill(Color(red: 0.926, green: 0.946, blue: 1.001))
-                                    }
-                            }
-                        
-                        Button {
-                            verifyUser(email: email, password: password)
-                            
-                        } label: {
+                        .padding(.leading, 30)
+                        .background{
                             RoundedRectangle(cornerRadius: 15)
-                                .frame(width: 150, height: 40)
-                                .padding()
-                                .overlay {
-                                    Text("Log In")
-                                        .foregroundColor(.white)
-                                        .font(Font.custom("Archivo", size: 17))
-                                        .fontWeight(.medium)
+                                .stroke(lineWidth: 2.0)
+                                
+                                .foregroundColor(Color(red: 0.636, green: 0.716, blue: 0.998))
+                                .frame(width: 280, height: 40)
+                                .background{
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .fill(Color(red: 0.926, green: 0.946, blue: 1.001))
+                                        
                                 }
                         }
-                    }
-                    .padding(.top, 50)
                     
+                    SecureField("Enter your Password", text : $password)
+                        .frame(width: 280, height: 40)
+                        .font(Font.custom("SF Pro Display", size: 17))
+                        .padding(.leading, 30)
+                        .padding()
+                        .background{
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(lineWidth: 2.0)
+                                
+                                .foregroundColor(Color(red: 0.636, green: 0.716, blue: 0.998))
+                                .frame(width: 280, height: 40)
+                                .background{
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .fill(Color(red: 0.926, green: 0.946, blue: 1.001))
+                                }
+                        }
+                    
+                    Button {
+                        verifyUser(email: email, password: password)
+                        
+                    } label: {
+                        RoundedRectangle(cornerRadius: 15)
+                            .frame(width: 150, height: 40)
+                            .padding()
+                            .overlay {
+                                Text("Log In")
+                                    .foregroundColor(.white)
+                                    .font(Font.custom("Archivo", size: 17))
+                                    .fontWeight(.medium)
+                            }
+                    }
                 }
+                .padding(.top, 50)
+                    
+                
         }.alert(isPresented: $showAlert) {
             Alert(title: Text("Alert"),message: Text(alertMessage))
         }
@@ -158,4 +147,3 @@ struct LogInView_Previews: PreviewProvider {
         LogInView()
     }
 }
-

@@ -9,6 +9,24 @@ import SwiftUI
 import FirebaseAuth
 
 struct PaymentPreviewView: View {
+    //     #F2F2F2
+        @State var bgColor:Color = Color(red: 242/255, green: 242/255, blue: 242/255)
+        // #1C1C1C
+        @State var headingColor:Color = Color(red: 28/255, green: 28/255, blue: 28/255)
+    //    #A1A8B0
+        @State var dayColor:Color = Color(red: 161/255, green: 168/255, blue: 176/255)
+//     #9D9F9F
+    @State var grayColor :Color = Color(red: 157/255, green: 159/255, blue: 159/255)
+    
+//  #555555
+    @State var dateColor :Color = Color(red: 85/255, green: 85/255, blue: 85/255)
+    
+//    #A1A8B0
+    @State var secondaryGrey:Color = Color(red: 161/255, green: 168/255, blue: 176/255)
+//      #101623
+    @State var amountColor:Color = Color(red: 16/255, green: 22/255, blue: 35/255)
+//    #E09F1F
+    @State var starYellow:Color = Color(red: 224/255, green: 159/255, blue: 31/255)
     var docID: String = ""
     var name: String = ""
     var dept: String = ""
@@ -28,16 +46,24 @@ struct PaymentPreviewView: View {
                     HStack{
                         VStack(alignment: .leading,spacing: 15){
                             Text(name)
+                                .font(Font.custom("SF Pro Display Bold", size: 20))
+                                .foregroundColor(headingColor)
                                 .padding(.top)
                             Text(dept)
+                                .font(Font.custom("SF Pro Display Regular", size: 16))
+                                .foregroundColor(grayColor)
                             Label("4.5", systemImage: "star.fill")
+                                .font(Font.custom("SF Pro Display Bold", size: 16))
+                                .foregroundColor(starYellow)
                                 .padding(.bottom)
+                                .font(Font.custom("SF Pro Display Bold", size: 16))
+                                .foregroundColor(headingColor)
                         }.padding(.leading)
                         Spacer()
                         Image("Profile Image")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 150, height: 150)
+                            .frame(width: 90, height: 90)
                             .padding(.trailing)
                     }.background{
                         RoundedRectangle(cornerRadius: 20)
@@ -46,6 +72,8 @@ struct PaymentPreviewView: View {
                     .padding()
                     
                     Text("Date")
+                        .font(Font.custom("SF Pro Display Semibold", size: 16))
+                        .foregroundColor(headingColor)
                         .frame(maxWidth: .infinity,alignment: .leading)
                         .padding(.leading)
                     
@@ -57,6 +85,8 @@ struct PaymentPreviewView: View {
                             .padding(.leading)
                         Spacer()
                         Text("\(date.formatted(date: .complete, time: .omitted)) | \(time):00")
+                            .font(Font.custom("SF Pro Display Semibold", size: 14))
+                            .foregroundColor(dateColor)
                             .padding(.top)
                             .padding(.bottom)
                             .padding(.trailing)
@@ -68,26 +98,44 @@ struct PaymentPreviewView: View {
                     .padding()
                     
                     Text("Payment Detail")
+                        .font(Font.custom("SF Pro Display Semibold", size: 16))
+                        .foregroundColor(headingColor)
                         .frame(maxWidth: .infinity,alignment: .leading)
                         .padding(.leading)
                     
                     HStack{
                         VStack(alignment: .leading, spacing: 15){
                             Text("Counsultation")
+                                .font(Font.custom("SF Pro Display Semibold", size: 16))
+                                .foregroundColor(secondaryGrey)
                                 .padding(.top)
                             Text("Admin Fee")
+                                .font(Font.custom("SF Pro Display Semibold", size: 16))
+                                .foregroundColor(secondaryGrey)
                             Text("Additional Discount")
+                                .font(Font.custom("SF Pro Display Regular", size: 14))
+                                .foregroundColor(secondaryGrey)
                             Text("Total")
+                                .font(Font.custom("SF Pro Display Semibold", size: 16))
+                                .foregroundColor(headingColor)
                                 .padding(.bottom)
 
                         }.padding(.leading)
                         Spacer()
                         VStack(spacing: 15){
-                            Text("$60.00")
+                            Text("₹600.00")
+                                .font(Font.custom("SF Pro Display Regular", size: 14))
+                                .foregroundColor(amountColor)
                                 .padding(.top)
-                            Text("$60.00")
+                            Text("₹600.00")
+                                .font(Font.custom("SF Pro Display Regular", size: 14))
+                                .foregroundColor(amountColor)
                             Text("-")
-                            Text("$120.00")
+                                .font(Font.custom("SF Pro Display Regular", size: 14))
+                                .foregroundColor(amountColor)
+                            Text("₹1200.00")
+                                .font(Font.custom("SF Pro Display Bold", size: 16))
+                                .foregroundColor(headingColor)
                                 .padding(.bottom)
 
                         }.padding(.trailing)
@@ -121,7 +169,11 @@ struct PaymentPreviewView: View {
                     HStack{
                         VStack{
                             Text("Total")
-                            Text("$120.00")
+                                .font(Font.custom("SF Pro Display Medium", size: 14))
+                                .foregroundColor(headingColor)
+                            Text("₹120.00")
+                                .font(Font.custom("SF Pro Display Semibold", size: 18))
+                                .foregroundColor(headingColor)
                         }.padding(.leading)
                         
                         Spacer()
@@ -129,7 +181,7 @@ struct PaymentPreviewView: View {
                             showSuccessOnPayment.toggle()
                             slotBookingVM.addData(doctorId: docID, patientId: Auth.auth().currentUser!.uid,doctorName: name, department: dept, patientName: userVM.user[0].name, Date: date, slots: time)
                         } label: {
-                            Text("Pay Now")
+                            Text("Book Now")
                                 .padding()
                                 .foregroundColor(.white)
                                 .background{
@@ -160,3 +212,4 @@ struct BookingReviewView_Previews: PreviewProvider {
         PaymentPreviewView()
     }
 }
+

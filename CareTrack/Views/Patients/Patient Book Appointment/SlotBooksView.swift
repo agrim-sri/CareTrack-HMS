@@ -59,6 +59,7 @@ struct SlotBooksView: View {
                                 .overlay{
                                     Image("docImg")
                                         .resizable()
+                                        .aspectRatio(contentMode: .fill)
                                         .frame(width: 80, height: 80)
                                         .cornerRadius(15)
                                 }
@@ -114,3 +115,4 @@ struct SlotBooksView: View {
             }
         }
     }
+

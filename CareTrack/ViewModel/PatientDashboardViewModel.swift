@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
 
 class PatientDashboardViewModel: ObservableObject{
     @Published var user = [Patient]()
@@ -16,7 +17,8 @@ class PatientDashboardViewModel: ObservableObject{
         let db = Firestore.firestore()
         
         let collectionRef = db.collection("Patient")
-        let query = collectionRef.whereField("id", isEqualTo: Auth.auth().currentUser!.uid)
+        let query = collectionRef
+            .whereField("id", isEqualTo: Auth.auth().currentUser!.uid)
         
         
         query.getDocuments { snapshot, error in
@@ -24,22 +26,16 @@ class PatientDashboardViewModel: ObservableObject{
              // Check for errors
              if error == nil {
                  // No errors
-
                  if let snapshot = snapshot {
                      // Update the list property in the main thread
                      DispatchQueue.main.async {
                          // Get all the documents and create Todos
                          self.user = snapshot.documents.map { d in
-                             
                              // Create a Todo item for each document returned
-                             
-                             return Patient(id: d["id"] as? String ?? "", name: d["name"] as? String ?? "")
+                             return Patient(id: d["id"] as? String ?? "", name: d["name"] as? String ?? "",age: d["age"] as? Int ?? 0, gender:d["gender"] as? String ?? "")
                              
                          }
                      }
-                     
-                     
-                     
                  }
              }
              else {
@@ -71,13 +67,8 @@ class PatientDashboardViewModel: ObservableObject{
                              // Create a Todo item for each document returned
                              
                              return Appointment(doctorId: d["DoctoId"] as? String ?? "", patientId: d["PatientId"] as? String ?? "", date: d["Date"] as? Int ?? 0, doctorName: d["DoctorName"] as? String ?? "",department: d["Department"] as? String ?? "",patientName: d["PatientName"] as? String ?? "", time: d["Time"] as? String ?? "")
-
-                             
                          }
                      }
-                     
-                     
-                     
                  }
              }
              else {
@@ -88,3 +79,4 @@ class PatientDashboardViewModel: ObservableObject{
     
     
 }
+

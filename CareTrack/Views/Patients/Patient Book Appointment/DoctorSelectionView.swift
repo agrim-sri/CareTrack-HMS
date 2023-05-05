@@ -26,9 +26,9 @@ struct DoctorSelectionView: View {
                         VStack{
                             ZStack{
                                 RoundedRectangle(cornerRadius: 30)
-                                    .frame(width: UIScreen.screenWidth - 32,height: 150)
+                                    .frame(width: UIScreen.screenWidth - 44,height: 150)
                                     .foregroundColor(.white)
-                                    .shadow(radius: 3)
+                                    .shadow(radius: 1)
                                 HStack{
                                     VStack(alignment: .leading,spacing: 5){
                                         Text(d.name)
@@ -67,7 +67,7 @@ struct DoctorSelectionView: View {
                                         .padding()
                                         .foregroundColor(.black)
                                 }
-                                .frame(width: UIScreen.screenWidth - 32,alignment: .trailing)
+                                .frame(width: UIScreen.screenWidth - 44,alignment: .trailing)
                             }
                             
                             
@@ -95,6 +95,9 @@ struct DoctorSelectionView: View {
             }
             
         }
+    
+    
+    
 }
 
 struct DoctorSelectionView_Previews: PreviewProvider {
