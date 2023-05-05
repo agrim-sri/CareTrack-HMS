@@ -26,7 +26,7 @@ struct PaymentConfirmedCardView: View {
                 .shadow(radius: 10.0)
                 .overlay{
                     VStack{
-                        Image("PaymentConfirmed")
+                        Image("BookingConfirmed")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .padding(.bottom)
@@ -34,13 +34,13 @@ struct PaymentConfirmedCardView: View {
                             .padding(.top)
                             
                         
-                        Text("Payment Success")
+                        Text("Booking Successfully")
                             .bold()
                             .padding(.top)
                             .padding(.bottom)
                         
                         VStack(alignment: .center) {
-                            Text("Your payment has been sucessful, You can have a consulation session with your trusted doctor")
+                            Text("Your booking has been sucessful, You can have a consulation session with your trusted doctor")
                                 .foregroundColor(.secondary)
                                 .frame(maxWidth: .infinity)
                                 .padding()
@@ -49,7 +49,7 @@ struct PaymentConfirmedCardView: View {
                         }
                         
                         Button {
-                            
+                            SlotBookView()
                         } label: {
                             RoundedRectangle(cornerRadius: 25.0)
                                 .frame(width: 120, height: 50)

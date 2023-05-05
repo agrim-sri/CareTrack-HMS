@@ -13,8 +13,9 @@ struct Patient{
     var id : String
 //    var email: String
     var name : String
-//    var age : Int
-//    var gender : String
+    var age : Int
+    var gender : String
 //    var phone : String
 
 }
+

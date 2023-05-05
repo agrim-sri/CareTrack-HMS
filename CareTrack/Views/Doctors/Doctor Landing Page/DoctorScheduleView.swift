@@ -96,3 +96,4 @@ struct DoctorScheduleView_Previews: PreviewProvider {
         DoctorScheduleView()
     }
 }
+

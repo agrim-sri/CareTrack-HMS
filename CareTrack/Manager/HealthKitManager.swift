@@ -101,6 +101,19 @@ class HealthKitManager {
         }
     }
     
+    func setUpHealthRequestForRespiration(healthStore: HKHealthStore, readRespiration: @escaping () -> Void){
+        if HKHealthStore.isHealthDataAvailable(), let respirationType = HKObjectType.quantityType(forIdentifier: .respiratoryRate){
+            healthStore.requestAuthorization(toShare: nil, read: [respirationType]) { success, error in
+                if success{
+                    readRespiration()
+                } else if let error = error{
+                    
+                }
+            }
+        }
+    }
+    
+    
     
     
     
@@ -246,5 +259,29 @@ class HealthKitManager {
             healthStore.execute(query)
         }
     
+    
+    func getRespiratoryRateSamples(healthStore: HKHealthStore,completion: @escaping (Double) -> Void) {
+        guard let sampleType = HKSampleType.quantityType(forIdentifier: .respiratoryRate) else {
+            print("Respiratory rate sample type not available")
+            return
+        }
+
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+        let query = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: [sortDescriptor]) { (query, samples, error) in
+            guard let samples = samples as? [HKQuantitySample], let quantity = samples.first?.quantity else {
+                print("No respiratory rate samples available")
+                return
+            }
+
+            let value = quantity.doubleValue(for: HKUnit(from: "count/min"))
+            print("Respiratory rate: \(value) count/min")
+            completion(value)
+        }
+
+        healthStore.execute(query)
+    }
+
+    
 }
+
 

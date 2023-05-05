@@ -22,7 +22,7 @@ struct PaitentRecordView: View {
     
     @State var searchDoc: String = ""
     @State var showMoreDoc: Bool = false
-   
+    @StateObject var prescriptionViewModel = PrescriptionViewModel()
     
     var body: some View {
         NavigationView {
@@ -32,19 +32,19 @@ struct PaitentRecordView: View {
                 ScrollView(showsIndicators: false){
                     VStack{
                           
-                        ForEach(searchResult.sorted(by: { $0.key < $1.key }).map(DictionaryElementWrapper.init),id :\.self){ i in
-                            NavigationLink(destination: PatientPrescriptionView()) {
+                        ForEach(searchResults){ i in
+                            NavigationLink(destination: PatientPrescriptionView(id: i.id)) {
                                 HStack{
                                     VStack(alignment: .leading,spacing:15){
-                                        Text(i.key)
+                                        Text(i.DoctorName)
                                             .font(Font.custom("SF Pro Display Semibold", size: 20))
                                             .foregroundColor(.black)
-                                        Text(i.value[0])
+                                        Text(i.Diagnosis)
                                             .font(Font.custom("SF Pro Display Medium", size: 16))
                                             .foregroundColor(Color(red: 157/255, green: 159/255, blue: 159/255))
                                             //.padding(.top)
 
-                                        Text("Date: \(i.value[1])")
+                                        Text("Date : \(Foundation.Date(milliseconds: Int64(i.Date)).formatted(date: .complete, time: .omitted))")
                                             .font(Font.custom("SF Pro Display Light", size: 14))
                                             .foregroundColor(Color(red: 157/255, green: 159/255, blue: 159/255))
 
@@ -79,19 +79,21 @@ struct PaitentRecordView: View {
                 .navigationTitle(Text("Records"))
             }
         }.searchable(text: $searchDoc,prompt: Text("Search Records"))
-            
-            
-            
+            .onFirstAppear {
+                prescriptionViewModel.getUser()
+            }
+         
+    }
+    var searchResults: [Prescription] {
+        if searchDoc.isEmpty {
+            return prescriptionViewModel.prescriptionData
+        } else {
+            return prescriptionViewModel.prescriptionData.filter {$0.DoctorName.contains(searchDoc) }
+        }
+        
     }
     
-    var searchResult: [String:[String]] {
-        if searchDoc.isEmpty {
-            return DocData
-        }
-        else {
-            return DocData.filter {$0.key.contains(searchDoc) }
-        }
-    }
+    
 }
 
 struct PatientRecordsView_Previews: PreviewProvider {
@@ -99,3 +101,4 @@ struct PatientRecordsView_Previews: PreviewProvider {
         PaitentRecordView()
     }
 }
+

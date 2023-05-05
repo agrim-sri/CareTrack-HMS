@@ -75,8 +75,8 @@ struct PatientVitalsView: View {
                             }
                         }
                         .padding(.top)
-                        .padding(.leading)
-                        .padding(.trailing)
+                        .padding(.leading,30)
+                        .padding(.trailing,30)
                         
                         
                         RoundedRectangle(cornerRadius: 30)
@@ -99,7 +99,7 @@ struct PatientVitalsView: View {
                                             VStack {
                                                 HStack{
                                                     Text("\(HealthKitVM.heart)")
-                                                        .font(.system(size: 35))    
+                                                        .font(.system(size: 35))
                                                         .bold()
                                                     Text("BPM")
                                                         .foregroundColor(.secondary)
@@ -138,13 +138,13 @@ struct PatientVitalsView: View {
                                         VStack {
                                             HStack{
                                                 Image("BloodOxygen")
-                                                Text("Blood Oxygen")
-                                                    .foregroundColor(.blue)
+                                                Text("Respiration")
+                                                    .foregroundColor(Color.green)
                                                 
                                                 
                                             }
                                             HStack{
-                                                Text("99")
+                                                Text("\(HealthKitVM.respiration)")
                                                     .font(.system(size: 35))
                                                     .bold()
                                                 Text("%")

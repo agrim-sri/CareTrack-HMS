@@ -23,7 +23,8 @@ struct DoctorLandingPageView: View {
 // time array
     @State var timeArray:[String] = ["10:00","10:30","11:00","11:30","12:00","5:00","5:30","6:00","6:30","7:00"]
     
-    @StateObject var DoctorLandingViewModel = DoctorLandingPageViewModel()    
+    @StateObject var DoctorLandingViewModel = DoctorLandingPageViewModel()
+    @StateObject var prescriptionVM = PrescriptionViewModel()
     var body: some View {
         NavigationView {
             ZStack{
@@ -41,6 +42,8 @@ struct DoctorLandingPageView: View {
                                     Text("\(DoctorLandingViewModel.doctorDetail["name"]!)" as String)
                                         .font(Font.custom("SF Pro Display Heavy", size: 32))
                                         .foregroundColor(headingColor)
+                                        
+                                    
                                 }
                                     
                                 
@@ -50,7 +53,7 @@ struct DoctorLandingPageView: View {
                                 
                             }.padding(.leading)
                             Spacer()
-                            Image("Profile Image")
+                            Image("DoctorAvatar")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 150,height: 150)
@@ -95,6 +98,7 @@ struct DoctorLandingPageView: View {
                 }
             }
             .task {
+                prescriptionVM.getUser()
                 DoctorLandingViewModel.getDoctorData()
 
         }
@@ -108,3 +112,4 @@ struct DoctorLandingPage_Previews: PreviewProvider {
         DoctorLandingPageView()
     }
 }
+

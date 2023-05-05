@@ -91,3 +91,4 @@ class DoctorLandingPageViewModel:ObservableObject{
         return strDate
     }
 }
+

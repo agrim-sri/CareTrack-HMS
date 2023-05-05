@@ -119,3 +119,4 @@ struct DepartmentSelectionView_Previews: PreviewProvider {
         DepartmentSelectionView()
     }
 }
+

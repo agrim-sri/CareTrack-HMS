@@ -21,7 +21,7 @@ struct DoctorContentView: View {
                                 Text("Record")
                             }
                        
-                        DoctorProfileView()
+            DoctorProfileView()
                             .tabItem {
                                 Image(systemName: "person")
                                 Text("Profile")
@@ -35,3 +35,4 @@ struct DoctorContentView_Previews: PreviewProvider {
         DoctorContentView()
     }
 }
+

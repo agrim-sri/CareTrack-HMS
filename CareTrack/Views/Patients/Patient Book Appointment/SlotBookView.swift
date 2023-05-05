@@ -18,6 +18,7 @@ let Columns:[GridItem] = [
     // create a range from those two
     let range = Date.now...tomorrow
 let colours:[Color] = [.red,.blue,.cyan,.accentColor,.brown,.gray,.indigo,.orange,.mint,.pink,.teal,.yellow]
+
     
 
 struct SlotBookView: View {
@@ -25,13 +26,15 @@ struct SlotBookView: View {
     let startingDate:Date=Calendar.current.date(from: DateComponents(year: 2023)) ?? Date()
     let endingDate:Date = Date()
     @State var screenWidth = UIScreen.main.bounds.width*0.9
-    @State var selectedButton: Int = -1
+    @State var selectedButton: Int = 0
     var docID: String = ""
     var docName: String = ""
     var degree: String = ""
     var dept: String = ""
     var experience: Int = 0
+    var slotSelected :String = ""
     var date: Date = Date()
+    var slots:[String] = ["10:00","10:30","11:00","11:30","17:00","17:30","18:00","18:30","19:00"]
     var body: some View {
         
             
@@ -46,10 +49,11 @@ struct SlotBookView: View {
                         
                 
                 LazyVGrid(columns: Columns){
-                    ForEach(9..<15){index in
+                    ForEach(0..<slots.count){index in
                         
                         Button{
                             selectedButton = index
+                            
                         }label: {
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(.blue,lineWidth: 3)
@@ -57,7 +61,7 @@ struct SlotBookView: View {
                                 .cornerRadius(20)
                                 .frame(height: 50)
                                 .overlay(
-                                    Text("\(index):00")
+                                    Text(slots[index])
                                         .foregroundColor(selectedButton == index ? .white : .black)
                                 )
                                 .font(.system(size: 20))
@@ -74,7 +78,7 @@ struct SlotBookView: View {
                     
                 }
                 
-                NavigationLink(destination: PaymentPreviewView(docID: docID,name: docName,dept: dept,time: String(selectedButton),date:date)) {
+                NavigationLink(destination: PaymentPreviewView(docID: docID,name: docName,dept: dept,time: slots[selectedButton],date:date)) {
                     Text("Book Slot")
                         .font(.system(size: 20))
                         .bold()
@@ -118,3 +122,4 @@ struct SlotBookingView_Previews: PreviewProvider {
         SlotBookView()
     }
 }
+

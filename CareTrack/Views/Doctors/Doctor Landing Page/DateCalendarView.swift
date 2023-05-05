@@ -135,7 +135,7 @@ struct DateCalendarView: View {
                         }
                         .padding()
                     
-                    NavigationLink(destination: DoctorPrescriptionForm()) {
+                    NavigationLink(destination: DoctorPrescriptionForm(patientId: DoctorLandingViewModel.appoitementDetails[index].patientId,patientName:DoctorLandingViewModel.appoitementDetails[index].patientName)) {
                         HStack{
                             VStack(alignment: .leading,spacing: 5){
                                 Text("\(DoctorLandingViewModel.appoitementDetails[index].patientName)" as String)
@@ -189,3 +189,4 @@ struct DateCalendarView_Previews: PreviewProvider {
         DateCalendarView()
     }
 }
+
